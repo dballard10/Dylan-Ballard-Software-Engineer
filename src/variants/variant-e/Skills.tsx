@@ -9,16 +9,18 @@ export default function Skills() {
     []
   );
 
-  // Split skills roughly in half for two rows
-  const mid = Math.ceil(allSkills.length / 2);
-  const row1Skills = allSkills.slice(0, mid);
-  const row2Skills = allSkills.slice(mid);
+  // Split skills into four rows
+  const quarter = Math.ceil(allSkills.length / 4);
+  const row1Skills = allSkills.slice(0, quarter);
+  const row2Skills = allSkills.slice(quarter, quarter * 2);
+  const row3Skills = allSkills.slice(quarter * 2, quarter * 3);
+  const row4Skills = allSkills.slice(quarter * 3);
 
   return (
     <section id="skills" className="ve-skills">
       <div className="ve-skills__header">
         <ScrollAnimation>
-          <h2 className="ve-skills__title">Toolkit</h2>
+          <h2 className="ve-skills__title">Skills</h2>
         </ScrollAnimation>
       </div>
 
@@ -48,6 +50,44 @@ export default function Skills() {
             <div className="ve-skills__marquee-track ve-skills__marquee-track--left">
               {[...row2Skills, ...row2Skills].map((skill, i) => (
                 <div key={`r2-${i}`} className="ve-skills__card">
+                  {skill.icon && (
+                    <img
+                      src={skill.colorIcon || skill.icon}
+                      alt=""
+                      className="ve-skills__card-icon"
+                      loading="lazy"
+                    />
+                  )}
+                  <span className="ve-skills__card-name">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 3: scrolls right */}
+          <div className="ve-skills__marquee-row">
+            <div className="ve-skills__marquee-track ve-skills__marquee-track--right">
+              {[...row3Skills, ...row3Skills].map((skill, i) => (
+                <div key={`r3-${i}`} className="ve-skills__card">
+                  {skill.icon && (
+                    <img
+                      src={skill.colorIcon || skill.icon}
+                      alt=""
+                      className="ve-skills__card-icon"
+                      loading="lazy"
+                    />
+                  )}
+                  <span className="ve-skills__card-name">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 4: scrolls left */}
+          <div className="ve-skills__marquee-row">
+            <div className="ve-skills__marquee-track ve-skills__marquee-track--left">
+              {[...row4Skills, ...row4Skills].map((skill, i) => (
+                <div key={`r4-${i}`} className="ve-skills__card">
                   {skill.icon && (
                     <img
                       src={skill.colorIcon || skill.icon}

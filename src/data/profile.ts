@@ -2,9 +2,8 @@ import type { ProfileData } from "./types";
 
 export const profile: ProfileData = {
   name: "Dylan Ballard",
-  title: "Full-Stack Engineer",
+  title: "Full-Stack Software Engineer",
   profileImage: "/assets/profile-pic.webp",
-  resumeUrl: "/DylanBallardResume2025.pdf",
 
   contact: {
     phone: "(703) 848-5998",

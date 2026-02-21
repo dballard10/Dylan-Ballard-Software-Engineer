@@ -46,23 +46,6 @@ export default function Hero() {
           {profile.title}
         </p>
 
-        <div
-          className={`ve-hero__cta-group${
-            visible ? " ve-hero__cta-group--visible" : ""
-          }`}
-        >
-          <a href="#contact" className="ve-hero__cta ve-hero__cta--primary">
-            Get In Touch
-          </a>
-          <a
-            href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ve-hero__cta ve-hero__cta--secondary"
-          >
-            View Resume
-          </a>
-        </div>
       </div>
 
       <div className="ve-hero__right">

@@ -37,7 +37,6 @@ export interface ProfileData {
   name: string;
   title: string;
   profileImage: string;
-  resumeUrl: string;
   contact: ContactInfo;
   skills: SkillCategory[];
   projects: Project[];
