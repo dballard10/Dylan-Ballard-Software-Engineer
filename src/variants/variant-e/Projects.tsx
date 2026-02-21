@@ -60,7 +60,7 @@ export default function Projects() {
     <section id="projects" className="ve-projects">
       <div className="ve-projects__header">
         <ScrollAnimation>
-          <h2 className="ve-projects__title">Selected Work</h2>
+          <h2 className="ve-projects__title">Projects</h2>
         </ScrollAnimation>
       </div>
 

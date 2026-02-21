@@ -12,7 +12,7 @@ export function useActiveSection(sectionIds: string[]) {
           }
         }
       },
-      { threshold: 0.3, rootMargin: "-10% 0px -60% 0px" }
+      { threshold: 0.15, rootMargin: "-10% 0px -30% 0px" }
     );
 
     for (const id of sectionIds) {

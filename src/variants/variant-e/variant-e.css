@@ -13,7 +13,6 @@
 }
 
 .variant-e__main {
-  margin-left: var(--nav-rail-width, 60px);
   position: relative;
   z-index: 1;
 }
@@ -297,7 +296,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-left: calc(-1 * var(--nav-rail-width, 60px));
 }
 
 .ve-skills__marquee-row {
@@ -305,6 +303,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  contain: layout style paint;
 }
 
 .ve-skills__marquee-row:hover .ve-skills__marquee-track {
@@ -315,6 +314,7 @@
   display: flex;
   gap: 0.75rem;
   will-change: transform;
+  backface-visibility: hidden;
   flex-shrink: 0;
 }
 
@@ -332,8 +332,6 @@
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   background: rgba(39, 39, 42, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-default);
   border-radius: var(--pill-radius);
   white-space: nowrap;
@@ -343,8 +341,9 @@
 }
 
 .ve-skills__card:hover {
-  background: rgba(127, 29, 29, 0.5);
+  background: rgba(80, 15, 15, 0.5);
   border-color: rgba(159, 42, 42, 0.4);
+  color: var(--text-primary);
 }
 
 .ve-skills__card-icon {
@@ -363,6 +362,11 @@
   font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.ve-skills__card:hover .ve-skills__card-name {
+  color: var(--text-primary);
 }
 
 /* ── Projects — Magazine Alternating Layout ── */
@@ -629,7 +633,6 @@
 
 /* ── MetadataFooter — Variant E Overrides ── */
 .variant-e .metadata-footer {
-  margin-left: var(--nav-rail-width, 60px);
   padding: 2rem 0 1.5rem;
   text-align: center;
   position: relative;
@@ -753,14 +756,6 @@
 @media (max-width: 768px) {
   .ve-dotnav {
     display: none;
-  }
-
-  .variant-e__main {
-    margin-left: 0;
-  }
-
-  .variant-e .metadata-footer {
-    margin-left: 0;
   }
 
   /* Hero stacks to single column */
