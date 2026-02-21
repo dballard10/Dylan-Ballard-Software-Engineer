@@ -9,12 +9,37 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: radial-gradient(
+    300px circle at 4px var(--glow-y, -200px),
+    rgba(var(--glow-color), var(--glow-opacity)),
+    transparent 70%
+  );
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
 }
 
 body {
