@@ -1,0 +1,906 @@
+/* ============================================
+   Variant E: "Obsidian" — Luxury Tech Editorial
+   Dark editorial / magazine aesthetic
+   ============================================ */
+
+/* ── Base Layout ── */
+.variant-e {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.variant-e__main {
+  margin-left: var(--nav-rail-width, 60px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── DotNav — Fixed Left Rail ── */
+.ve-dotnav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--nav-rail-width, 60px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  z-index: 40;
+  background: transparent;
+}
+
+.ve-dotnav__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.ve-dotnav__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-muted);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.ve-dotnav__item--active .ve-dotnav__dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.ve-dotnav__item:hover .ve-dotnav__dot {
+  border-color: var(--accent-secondary);
+}
+
+.ve-dotnav__label {
+  position: absolute;
+  left: calc(100% + 0.5rem);
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ve-dotnav__item:hover .ve-dotnav__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Hero — Split Asymmetric ── */
+.ve-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.ve-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(225, 29, 72, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ve-hero__left {
+  position: relative;
+  z-index: 2;
+}
+
+.ve-hero__name-line {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1.0;
+  color: var(--text-primary);
+  display: block;
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.ve-hero__name-line--visible {
+  animation: ve-slide-in-left 0.7s ease-out forwards;
+}
+
+.ve-hero__name-line:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.ve-hero__accent-line {
+  width: 80px;
+  height: 2px;
+  background: var(--accent-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.ve-hero__accent-line--visible {
+  animation: ve-scale-in 0.5s ease-out 0.4s forwards;
+}
+
+.ve-hero__title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  font-variant: small-caps;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.ve-hero__title--visible {
+  animation: ve-fade-up 0.5s ease-out 0.6s forwards;
+}
+
+.ve-hero__cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.ve-hero__cta-group--visible {
+  animation: ve-fade-up 0.5s ease-out 0.8s forwards;
+}
+
+.ve-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--button-radius);
+}
+
+.ve-hero__cta--primary {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border: 2px solid var(--accent-primary);
+}
+
+.ve-hero__cta--primary:hover {
+  background: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+.ve-hero__cta--secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-default);
+}
+
+.ve-hero__cta--secondary:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.ve-hero__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: clamp(2rem, 4vw, 4rem);
+  position: relative;
+  z-index: 2;
+}
+
+.ve-hero__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.ve-hero__tagline--visible {
+  animation: ve-slide-in-right 0.7s ease-out 0.6s forwards;
+}
+
+/* ── About — Editorial Dropcap ── */
+.ve-about {
+  padding: 10rem 0 var(--section-padding);
+  padding-bottom: 8rem;
+}
+
+.ve-about__content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+}
+
+.ve-about__text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 2.0;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.ve-about__text:last-child {
+  margin-bottom: 0;
+}
+
+.ve-about__text--dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  float: left;
+  line-height: 1;
+  margin-right: 0.6rem;
+  margin-top: 0.15rem;
+}
+
+/* ── Skills — Dual-Row Marquee ── */
+.ve-skills {
+  padding: var(--section-padding);
+  overflow: hidden;
+}
+
+.ve-skills__header {
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  margin-bottom: 3rem;
+}
+
+.ve-skills__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ve-skills__marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ve-skills__marquee-row {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ve-skills__marquee-row:hover .ve-skills__marquee-track {
+  animation-play-state: paused;
+}
+
+.ve-skills__marquee-track {
+  display: flex;
+  gap: 0.75rem;
+  will-change: transform;
+  flex-shrink: 0;
+}
+
+.ve-skills__marquee-track--right {
+  animation: ve-marquee-right 40s linear infinite;
+}
+
+.ve-skills__marquee-track--left {
+  animation: ve-marquee-left 40s linear infinite;
+}
+
+.ve-skills__card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(39, 39, 42, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--pill-radius);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.ve-skills__card:hover {
+  border-color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+.ve-skills__card-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  filter: grayscale(1) brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+.ve-skills__card:hover .ve-skills__card-icon {
+  filter: grayscale(0) brightness(1);
+}
+
+.ve-skills__card-name {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ── Projects — Magazine Alternating Layout ── */
+.ve-projects {
+  padding: var(--section-padding);
+}
+
+.ve-projects__header {
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  margin-bottom: 4rem;
+}
+
+.ve-projects__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ve-projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+}
+
+.ve-project {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 3rem;
+  align-items: center;
+}
+
+.ve-project--even {
+  grid-template-columns: 40% 60%;
+}
+
+.ve-project__image-wrapper {
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.ve-project__image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(225, 29, 72, 0);
+  transition: background 0.4s ease;
+  pointer-events: none;
+  border-radius: var(--card-radius);
+}
+
+.ve-project__image-wrapper:hover::after {
+  background: rgba(225, 29, 72, 0.1);
+}
+
+.ve-project__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--card-radius);
+}
+
+.ve-project__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ve-project--even .ve-project__text {
+  order: -1;
+}
+
+.ve-project__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.ve-project__description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.ve-project__tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.ve-project__tech-item {
+  display: inline;
+}
+
+.ve-project__tech-item:not(:last-child)::after {
+  content: "\00B7";
+  margin: 0 0.5rem;
+  color: var(--text-muted);
+}
+
+.ve-project__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.ve-project__link:hover {
+  color: var(--accent-secondary);
+  gap: 0.6rem;
+}
+
+/* ── Contact — Elegant Minimal Form ── */
+.ve-contact {
+  padding: var(--section-padding);
+}
+
+.ve-contact__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.ve-contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.ve-contact__subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.ve-contact__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.ve-contact__social-link {
+  color: var(--text-muted);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ve-contact__social-link:hover {
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.ve-contact__form {
+  text-align: left;
+}
+
+.ve-contact__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.ve-contact__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem;
+}
+
+.ve-contact__form-row .ve-contact__field {
+  margin-bottom: 0;
+}
+
+.ve-contact__label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.ve-contact__input,
+.ve-contact__textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-default);
+  padding: 0.75rem 0;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  border-radius: 0;
+  outline: none;
+  width: 100%;
+}
+
+.ve-contact__input:focus,
+.ve-contact__textarea:focus {
+  border-bottom-color: var(--accent-primary);
+}
+
+.ve-contact__input::placeholder,
+.ve-contact__textarea::placeholder {
+  color: var(--bg-tertiary);
+}
+
+.ve-contact__textarea {
+  resize: vertical;
+  min-height: 100px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ve-contact__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent-primary);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.ve-contact__submit:hover {
+  background: var(--accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+.ve-contact__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── MetadataFooter — Variant E Overrides ── */
+.variant-e .metadata-footer {
+  margin-left: var(--nav-rail-width, 60px);
+  padding: 2rem 0 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.variant-e .metadata-footer__accent-line {
+  width: 60px;
+  height: 1px;
+  background: var(--accent-primary);
+  margin: 0 auto 1.5rem;
+}
+
+.variant-e .metadata-footer__content {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.variant-e .metadata-footer__copyright {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+}
+
+/* ── Gradient Text Utility ── */
+.ve-gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section Padding ── */
+.ve-section {
+  padding: 8rem 0;
+}
+
+/* ── Keyframe Animations ── */
+@keyframes ve-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ve-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ve-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ve-scale-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ve-marquee-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ve-marquee-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ── Responsive — 1024px ── */
+@media (max-width: 1024px) {
+  .ve-hero__name-line {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .ve-project {
+    grid-template-columns: 50% 50%;
+  }
+
+  .ve-project--even {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+/* ── Responsive — 768px ── */
+@media (max-width: 768px) {
+  .ve-dotnav {
+    display: none;
+  }
+
+  .variant-e__main {
+    margin-left: 0;
+  }
+
+  .variant-e .metadata-footer {
+    margin-left: 0;
+  }
+
+  /* Hero stacks to single column */
+  .ve-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+    min-height: 100vh;
+    align-content: center;
+  }
+
+  .ve-hero__right {
+    padding-left: 0;
+    justify-content: flex-start;
+  }
+
+  .ve-hero__tagline {
+    text-align: left;
+  }
+
+  /* Projects single column */
+  .ve-project {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .ve-project--even {
+    grid-template-columns: 1fr;
+  }
+
+  .ve-project--even .ve-project__text {
+    order: 0;
+  }
+
+  .ve-projects__list {
+    gap: 4rem;
+  }
+
+  /* Contact form row */
+  .ve-contact__form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ve-contact__form-row .ve-contact__field {
+    margin-bottom: 1.75rem;
+  }
+
+  /* About */
+  .ve-about {
+    padding-top: 6rem;
+  }
+
+  .ve-about__content {
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+  }
+
+  /* Skills */
+  .ve-skills__header {
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+  }
+
+  /* Projects */
+  .ve-projects__header {
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .ve-projects__list {
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+  }
+}
+
+/* ── Responsive — 480px ── */
+@media (max-width: 480px) {
+  .ve-hero__name-line {
+    font-size: 3rem;
+  }
+
+  .ve-hero__cta-group {
+    flex-direction: column;
+  }
+
+  .ve-hero__cta {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ve-section {
+    padding: 5rem 0;
+  }
+
+  .ve-about {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+  }
+
+  .ve-skills {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .ve-projects {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .ve-contact {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .ve-contact__inner {
+    padding: 0 1.5rem;
+  }
+
+  .ve-project__name {
+    font-size: 1.5rem;
+  }
+
+  .ve-about__text--dropcap::first-letter {
+    font-size: 2.8rem;
+  }
+}
+
+/* ── Focus States ── */
+.ve-hero__cta:focus-visible,
+.ve-contact__submit:focus-visible,
+.ve-project__link:focus-visible,
+.ve-dotnav__item:focus-visible,
+.ve-contact__social-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.ve-contact__input:focus-visible,
+.ve-contact__textarea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--accent-primary);
+}
+
+/* ── Smooth scrolling ── */
+.variant-e {
+  scroll-behavior: smooth;
+}

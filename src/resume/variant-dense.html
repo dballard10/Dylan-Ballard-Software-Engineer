@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dylan Ballard — Resume (Dense)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  @page { size: letter; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    padding: 0.35in 0.5in;
+    background: #fff;
+    color: #1f2937;
+  }
+
+  a { color: #1d4ed8; text-decoration: none; }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding-bottom: 6pt;
+    border-bottom: 1.5px solid #000;
+    margin-bottom: 6pt;
+  }
+  .header h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 4pt;
+  }
+  .header .contact {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 9pt;
+    color: #374151;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .header .contact .sep { color: #9ca3af; }
+
+  /* ── Full-width Education ── */
+  .education-full {
+    padding-bottom: 6pt;
+    border-bottom: 1.5px solid #000;
+    margin-bottom: 8pt;
+  }
+  .education-full .section-header {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4pt;
+  }
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    margin-bottom: 1pt;
+  }
+  .edu-row .school {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .edu-row .school span {
+    font-weight: 400;
+    color: #374151;
+  }
+  .edu-row .dates {
+    font-size: 8.5pt;
+    color: #6b7280;
+  }
+
+  /* ── Two-column body ── */
+  .columns {
+    display: flex;
+    gap: 0.28in;
+  }
+  .col-left { width: 3.68in; }
+  .col-right { width: 3.54in; }
+
+  /* ── Shared section headers ── */
+  .section-header {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-bottom: 2pt;
+    border-bottom: 1.5px solid #000;
+    margin-bottom: 6pt;
+  }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 9pt; }
+  .job:last-child { margin-bottom: 0; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+  }
+  .job-company {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .job-date {
+    font-size: 8.5pt;
+    color: #6b7280;
+    flex-shrink: 0;
+  }
+  .job-title {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 9pt;
+    font-weight: 400;
+    font-style: italic;
+    color: #4b5563;
+    margin-bottom: 3pt;
+  }
+  .job-location {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 8pt;
+    color: #6b7280;
+    margin-bottom: 3pt;
+  }
+
+  /* ── Nested bullets ── */
+  .bullets {
+    list-style: disc;
+    padding-left: 13pt;
+    font-family: 'Lora', Georgia, serif;
+  }
+  .bullets > li {
+    font-size: 8.5pt;
+    line-height: 1.35;
+    color: #1f2937;
+    margin-bottom: 3pt;
+  }
+  .bullets > li strong { color: #000; font-weight: 700; }
+  .sub-bullets {
+    list-style: none;
+    padding-left: 10pt;
+    margin-top: 1pt;
+  }
+  .sub-bullets > li {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 8pt;
+    line-height: 1.35;
+    color: #374151;
+    margin-bottom: 1.5pt;
+    position: relative;
+    padding-left: 10pt;
+  }
+  .sub-bullets > li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+  }
+  .sub-bullets > li strong { color: #000; font-weight: 700; }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 9pt; }
+  .project:last-child { margin-bottom: 0; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    margin-bottom: 2pt;
+  }
+  .project-name {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .project-url {
+    font-size: 8pt;
+    color: #1d4ed8;
+    flex-shrink: 0;
+  }
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 3pt;
+  }
+  .project-tech .pill {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 7pt;
+    font-weight: 500;
+    color: #4b5563;
+    background: #e5e7eb;
+    padding: 0px 5px;
+    border-radius: 3px;
+  }
+
+  /* ── Skills (bottom right) ── */
+  .skills-section { margin-top: 10pt; }
+  .skill-group { margin-bottom: 4pt; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-label {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .skill-values {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-size: 8.5pt;
+    color: #374151;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER (full width) ════════ -->
+<div class="header">
+  <h1>Dylan Ballard</h1>
+  <div class="contact">
+    <span>703-848-5998</span>
+    <span class="sep">|</span>
+    <a href="mailto:dylanballard55@gmail.com">dylanballard55@gmail.com</a>
+    <span class="sep">|</span>
+    <span>Reston, VA</span>
+    <span class="sep">|</span>
+    <a href="https://linkedin.com/in/dballard55">linkedin.com/in/dballard55</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/dballard10">github.com/dballard10</a>
+  </div>
+</div>
+
+<!-- ════════ EDUCATION (full width) ════════ -->
+<div class="education-full">
+  <div class="section-header">Education</div>
+  <div class="edu-row">
+    <div class="school"><strong>George Mason University</strong> <span>— M.S. Computer Science</span></div>
+    <div class="dates">2024 – Present</div>
+  </div>
+  <div class="edu-row">
+    <div class="school"><strong>James Madison University</strong> <span>— B.S. Computer Science</span></div>
+    <div class="dates">2020 – 2024</div>
+  </div>
+</div>
+
+<!-- ════════ TWO-COLUMN BODY ════════ -->
+<div class="columns">
+
+  <!-- ──── LEFT COLUMN: Experience ──── -->
+  <div class="col-left">
+    <div class="section-header">Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Eigennet</span>
+        <span class="job-date">2024 – Present</span>
+      </div>
+      <div class="job-title">Software Engineer</div>
+      <div class="job-location">Reston, VA</div>
+      <ul class="bullets">
+        <li>Managed secure AWS document transmission pipeline as sole cleared developer
+          <ul class="sub-bullets">
+            <li>Delivered <strong>500+ classified documents/month</strong> with <strong>99.7%</strong> success rate</li>
+            <li>Built SageMaker LLM extraction: <strong>10K+ pages/day</strong>, <strong>99% accuracy</strong></li>
+          </ul>
+        </li>
+        <li>Automated end-to-end SFTP delivery pipeline in Python
+          <ul class="sub-bullets">
+            <li>Metadata packaging, zip creation, and encrypted transfer</li>
+            <li>Eliminated <strong>20+ hours/week</strong> of manual processing</li>
+          </ul>
+        </li>
+        <li>Engineered EC2/S3 batch workflows with API-driven tracking
+          <ul class="sub-bullets">
+            <li>Real-time delivery monitoring via internal APIs</li>
+            <li>Cut transmission errors by <strong>90%</strong></li>
+          </ul>
+        </li>
+        <li>Built Django validation pipelines for pre-transmission data quality
+          <ul class="sub-bullets">
+            <li>Schema drift and anomaly detection</li>
+            <li>Prevents downstream data failures across partner systems</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Freddie Mac</span>
+        <span class="job-date">2023</span>
+      </div>
+      <div class="job-title">Software Engineering Intern</div>
+      <div class="job-location">McLean, VA</div>
+      <ul class="bullets">
+        <li>Designed Java-based data-validation tool for financial CSV datasets
+          <ul class="sub-bullets">
+            <li>Detects anomalies and schema drift across large datasets</li>
+            <li>Reduced manual reconciliation effort by <strong>60%</strong></li>
+          </ul>
+        </li>
+        <li>Integrated automated alert system into Financial Engineering pipeline
+          <ul class="sub-bullets">
+            <li>Version-mismatch detection across data sources</li>
+            <li>Caught <strong>3x more</strong> data-integrity issues before production</li>
+          </ul>
+        </li>
+        <li>Accelerated quarterly reconciliation process
+          <ul class="sub-bullets">
+            <li>Compressed timeline from <strong>2 weeks to 3 days</strong></li>
+            <li>Automated CSV comparison workflows end-to-end</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ──── RIGHT COLUMN: Projects + Skills ──── -->
+  <div class="col-right">
+    <div class="section-header">Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Embark</span>
+        <a class="project-url" href="https://embark-theta.vercel.app">embark-theta.vercel.app</a>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">Python</span>
+        <span class="pill">Supabase</span>
+      </div>
+      <ul class="bullets">
+        <li>Life gamification app: RPG-style quests, XP/currency systems, rarity-tiered item collection
+          <ul class="sub-bullets">
+            <li>Real-time progress via Supabase subscriptions</li>
+            <li>FastAPI WebSocket endpoints for live updates</li>
+            <li><strong>50+ active users</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Cinetik</span>
+        <a class="project-url" href="https://cinetik.app">cinetik.app</a>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">Python</span>
+      </div>
+      <ul class="bullets">
+        <li>Full-stack media tracking and social app for movies and TV shows
+          <ul class="sub-bullets">
+            <li>TMDB integration via TanStack Query</li>
+            <li>Zustand for client state management</li>
+            <li>PostgreSQL data layer handling <strong>500K+ records</strong></li>
+            <li>Responsive Tailwind CSS UI across devices</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-section">
+      <div class="section-header">Technical Skills</div>
+      <div class="skill-group">
+        <span class="skill-label">Languages: </span>
+        <span class="skill-values">TypeScript, JavaScript, Python, SQL, Java, HTML, CSS</span>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Frameworks &amp; Libraries: </span>
+        <span class="skill-values">React, Next.js, React Native, FastAPI, Django, Tailwind CSS, TanStack Query, Zustand, Vite</span>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Cloud &amp; Infrastructure: </span>
+        <span class="skill-values">AWS (EC2, S3, RDS, Lambda, SageMaker), Docker, Terraform, GitHub Actions, Vercel, Railway</span>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Data &amp; AI: </span>
+        <span class="skill-values">PostgreSQL, MySQL, Supabase, Pandas, NumPy, OpenAI, Anthropic, Celery, asyncio</span>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Tools: </span>
+        <span class="skill-values">Git, Node.js, Postman, Figma, Jira, Jest, Pytest, Linux</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

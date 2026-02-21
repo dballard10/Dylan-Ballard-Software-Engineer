@@ -19,6 +19,19 @@ build/
 .vscode/
 .DS_Store
 
+# Python
+__pycache__/
+*.pyc
+
+# Agent scratchpad (session-local state)
+.scratchpad/
+
+# Downloaded resume inspiration PDFs (third-party, local reference only)
+data/resumes/
+
+# Docs (symlink to Dev-Docs vault repo)
+docs
+
 # Logs
 *.log
 npm-debug.log*

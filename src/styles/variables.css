@@ -1,0 +1,48 @@
+/* ============================================
+   CSS Custom Properties — Obsidian Theme
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-hover: #3f3f46;
+
+  /* Text */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-link: #e11d48;
+
+  /* Accents */
+  --accent-primary: #e11d48;
+  --accent-secondary: #f43f5e;
+  --accent-primary-hover: #be123c;
+  --accent-secondary-hover: #e11d48;
+  --accent-rose-glow: rgba(225, 29, 72, 0.3);
+  --gradient-accent: linear-gradient(135deg, #e11d48, #f43f5e);
+
+  /* Borders */
+  --border-default: #27272a;
+  --border-hover: #e11d48;
+  --border-input-focus: #e11d48;
+
+  /* Mouse glow */
+  --glow-color: 225, 29, 72;
+  --glow-radius: 600px;
+  --glow-opacity: 0.08;
+
+  /* Layout */
+  --nav-rail-width: 60px;
+  --content-max-width: 1100px;
+  --section-padding: 8rem 0;
+  --card-radius: 0.5rem;
+  --button-radius: 0;
+  --pill-radius: 2rem;
+
+  /* Typography */
+  --font-display: "Syne", "Inter", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+}

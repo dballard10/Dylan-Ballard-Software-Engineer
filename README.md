@@ -1,6 +1,6 @@
-# Dylan Ballard - Personal Portfolio Website
+# Dylan Ballard - Portfolio
 
-A modern, responsive personal portfolio website built with React, TypeScript, and Vite, showcasing Dylan Ballard's experience as a Full-Stack Software Engineer.
+Portfolio and job search tool for Dylan Ballard, Full-Stack Software Engineer. Built with React, TypeScript, and Vite.
 
 ## 🚀 Features
 
@@ -107,45 +107,6 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 └── README.md                   # Documentation
 ```
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. **Clone or download** the project files
-2. **Install dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**:
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Type-check TypeScript**:
-
-   ```bash
-   npm run type-check
-   ```
-
-5. **Build for production**:
-
-   ```bash
-   npm run build
-   ```
-
-6. **Preview production build**:
-   ```bash
-   npm run preview
-   ```
-
 ## 📧 Contact Form
 
 The contact form uses a mailto: link approach that:
@@ -243,10 +204,6 @@ The website is fully responsive with:
 
 1. Run `npm run build`
 2. Deploy the `dist` folder to GitHub Pages
-
-## 📄 License
-
-This project is open source and available under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## 🤝 Acknowledgments
 

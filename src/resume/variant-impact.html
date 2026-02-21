@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dylan Ballard — Resume (Impact)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  @page { size: letter; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    padding: 0.4in 0.5in;
+    color: #374151;
+    font-size: 9.5pt;
+    line-height: 1.4;
+    background: #fff;
+  }
+
+  a { color: #2563eb; text-decoration: none; }
+
+  /* ── Header ── */
+  .header { text-align: center; margin-bottom: 14pt; }
+  .header h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.01em;
+    margin-bottom: 4pt;
+  }
+  .header .contact {
+    font-size: 9pt;
+    color: #6b7280;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .header .contact .sep { color: #d1d5db; }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 12pt; }
+  .section-header {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid #d1d5db;
+    margin-bottom: 7pt;
+  }
+
+  /* ── Skills ── */
+  .skills-grid { line-height: 1.55; }
+  .skills-row { margin-bottom: 1pt; }
+  .skills-row .label {
+    font-weight: 600;
+    color: #111827;
+    font-size: 9pt;
+  }
+  .skills-row .values { font-size: 9pt; color: #374151; }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 10pt; }
+  .job:last-child { margin-bottom: 0; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .job-company {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #111827;
+  }
+  .job-date {
+    font-size: 9pt;
+    color: #6b7280;
+    flex-shrink: 0;
+  }
+  .job-title {
+    font-size: 10pt;
+    font-weight: 400;
+    font-style: italic;
+    color: #374151;
+    margin-bottom: 4pt;
+  }
+  .job ul {
+    list-style: disc;
+    padding-left: 15pt;
+  }
+  .job li {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    margin-bottom: 2.5pt;
+    color: #374151;
+  }
+  .job li strong { color: #111827; font-weight: 700; }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 8pt; }
+  .project:last-child { margin-bottom: 0; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1pt;
+  }
+  .project-left {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .project-name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #111827;
+  }
+  .project-tech {
+    font-size: 8.5pt;
+    color: #6b7280;
+  }
+  .project-url {
+    font-size: 8.5pt;
+    color: #2563eb;
+    flex-shrink: 0;
+  }
+  .project ul {
+    list-style: disc;
+    padding-left: 15pt;
+  }
+  .project li {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    margin-bottom: 2pt;
+    color: #374151;
+  }
+  .project li strong { color: #111827; font-weight: 700; }
+
+  /* ── Education ── */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3pt;
+  }
+  .edu-school {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #111827;
+  }
+  .edu-right {
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<div class="header">
+  <h1>Dylan Ballard</h1>
+  <div class="contact">
+    <span>703-848-5998</span>
+    <span class="sep">|</span>
+    <a href="mailto:dylanballard55@gmail.com">dylanballard55@gmail.com</a>
+    <span class="sep">|</span>
+    <span>Reston, VA</span>
+    <span class="sep">|</span>
+    <a href="https://linkedin.com/in/dballard55">linkedin.com/in/dballard55</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/dballard10">github.com/dballard10</a>
+  </div>
+</div>
+
+<!-- ════════ SKILLS ════════ -->
+<div class="section">
+  <div class="section-header">Skills</div>
+  <div class="skills-grid">
+    <div class="skills-row"><span class="label">Languages: </span><span class="values">TypeScript, JavaScript, Python, SQL, Java, HTML, CSS</span></div>
+    <div class="skills-row"><span class="label">Frameworks: </span><span class="values">React, Next.js, React Native, FastAPI, Django, Tailwind CSS, Vite, Zustand, TanStack Query</span></div>
+    <div class="skills-row"><span class="label">Data &amp; AI: </span><span class="values">Pandas, NumPy, SageMaker, OpenAI, Anthropic, Celery, asyncio</span></div>
+    <div class="skills-row"><span class="label">Cloud: </span><span class="values">AWS (EC2, S3, RDS, Lambda, SageMaker), Docker, Terraform, GitHub Actions, Vercel, Railway</span></div>
+    <div class="skills-row"><span class="label">Databases: </span><span class="values">PostgreSQL, MySQL, Supabase, REST APIs, GraphQL</span></div>
+    <div class="skills-row"><span class="label">Tools: </span><span class="values">Git, Node.js, Postman, Figma, Jira, Jest, Pytest, Vitest, Linux</span></div>
+  </div>
+</div>
+
+<!-- ════════ EXPERIENCE ════════ -->
+<div class="section">
+  <div class="section-header">Experience</div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-company">Eigennet</span>
+      <span class="job-date">2024 – Present</span>
+    </div>
+    <div class="job-title">Software Engineer</div>
+    <ul>
+      <li>Architected secure AWS-based document transmission pipeline handling <strong>500+ classified documents monthly</strong> as sole cleared developer, achieving <strong>99.7% delivery success rate</strong></li>
+      <li>Built high-speed LLM extraction service on SageMaker processing <strong>10K+ pages/day</strong> with <strong>99% field-level accuracy</strong>, reducing manual review time by <strong>85%</strong></li>
+      <li>Automated end-to-end metadata packaging, zip creation, and SFTP delivery using Python, eliminating <strong>20+ hours/week</strong> of manual processing</li>
+      <li>Engineered EC2/S3 batch workflows with internal API tracking, cutting transmission errors by <strong>90%</strong> and enabling real-time delivery monitoring</li>
+      <li>Developed scalable Python/Django validation pipelines that catch schema drift and data anomalies before transmission, preventing downstream failures</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-company">Freddie Mac</span>
+      <span class="job-date">2023</span>
+    </div>
+    <div class="job-title">Software Engineering Intern</div>
+    <ul>
+      <li>Designed and shipped a Java-based data-validation tool that detects anomalies and schema drift across large financial CSV datasets, reducing manual reconciliation by <strong>60%</strong></li>
+      <li>Integrated automated version-mismatch alerts into the Financial Engineering team's pipeline, catching <strong>3x more</strong> data-integrity issues before production</li>
+      <li>Compressed quarterly reconciliation process from <strong>2 weeks to 3 days</strong> by automating previously manual CSV comparison workflows</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════ PROJECTS ════════ -->
+<div class="section">
+  <div class="section-header">Projects</div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-left">
+        <span class="project-name">Embark</span>
+        <span class="project-tech">React, TypeScript, FastAPI, Python, Supabase</span>
+      </div>
+      <a class="project-url" href="https://embark-theta.vercel.app">embark-theta.vercel.app</a>
+    </div>
+    <ul>
+      <li>Built a life-gamification web app with RPG quest engine, XP/currency systems, and rarity-tiered item collection serving <strong>50+ active users</strong></li>
+      <li>Implemented real-time progress tracking with Supabase subscriptions and FastAPI WebSocket endpoints</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <div class="project-left">
+        <span class="project-name">Cinetik</span>
+        <span class="project-tech">React, TypeScript, FastAPI, Python</span>
+      </div>
+      <a class="project-url" href="https://cinetik.app">cinetik.app</a>
+    </div>
+    <ul>
+      <li>Shipped a full-stack media tracking app with TMDB integration via TanStack Query, Zustand state management, and responsive Tailwind UI</li>
+      <li>Deployed scalable PostgreSQL data layer with optimized queries handling <strong>500K+ movie/show records</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════ EDUCATION ════════ -->
+<div class="section">
+  <div class="section-header">Education</div>
+  <div class="edu-row">
+    <span class="edu-school">George Mason University</span>
+    <span class="edu-right">M.S. Computer Science, 2024 – Present</span>
+  </div>
+  <div class="edu-row">
+    <span class="edu-school">James Madison University</span>
+    <span class="edu-right">B.S. Computer Science, 2020 – 2024</span>
+  </div>
+</div>
+
+</body>
+</html>

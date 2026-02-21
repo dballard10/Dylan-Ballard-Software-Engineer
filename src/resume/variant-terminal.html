@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dylan Ballard — Resume (Terminal)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  @page { size: letter; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    background: #0a0e14;
+    color: #abb2bf;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    border: 1px solid #1e293b;
+  }
+
+  a { color: #22c55e; text-decoration: none; }
+  .green { color: #22c55e; }
+  .yellow { color: #e5c07b; }
+  .blue { color: #61afef; }
+  .purple { color: #c678dd; }
+  .red { color: #e06c75; }
+  .cyan { color: #56b6c2; }
+  .bright { color: #e5e7eb; font-weight: 700; }
+  .dim { color: #5c6370; }
+
+  /* ── Title bar ── */
+  .titlebar {
+    background: #1e293b;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 8pt;
+    color: #64748b;
+    border-bottom: 1px solid #2d3748;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-red { background: #e06c75; }
+  .dot-yellow { background: #e5c07b; }
+  .dot-green { background: #22c55e; }
+  .titlebar-text { margin-left: 8px; }
+
+  /* ── Content ── */
+  .content { padding: 0.3in 0.4in 0.3in 0.4in; }
+
+  /* ── Header ── */
+  .header { margin-bottom: 12pt; }
+  .prompt-name {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #22c55e;
+    margin-bottom: 2pt;
+  }
+  .prompt-name .dollar { color: #5c6370; font-weight: 400; margin-right: 6px; }
+  .tagline {
+    font-size: 9pt;
+    color: #5c6370;
+    margin-bottom: 8pt;
+  }
+  .config-block { margin-bottom: 0; }
+  .config-line {
+    font-size: 8pt;
+    line-height: 1.6;
+  }
+  .config-key { color: #61afef; }
+  .config-val { color: #98c379; }
+  .config-sep { color: #5c6370; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 11pt; }
+  .section-header {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #22c55e;
+    margin-bottom: 5pt;
+  }
+  .section-header .hash { color: #5c6370; margin-right: 4px; }
+
+  /* ── Skills ── */
+  .install-line {
+    font-size: 8pt;
+    line-height: 1.65;
+    color: #abb2bf;
+  }
+  .install-line .dollar { color: #22c55e; margin-right: 6px; }
+  .install-line .cmd { color: #c678dd; }
+  .install-line .pkg { color: #98c379; }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 9pt; }
+  .job:last-child { margin-bottom: 0; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2pt;
+  }
+  .job-company {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #e5e7eb;
+  }
+  .job-date { font-size: 8pt; color: #5c6370; }
+  .job-title {
+    font-size: 8.5pt;
+    color: #e5c07b;
+    margin-bottom: 3pt;
+  }
+  .job ul { list-style: none; padding-left: 0; }
+  .job li {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    margin-bottom: 2.5pt;
+    padding-left: 16pt;
+    position: relative;
+    color: #abb2bf;
+  }
+  .job li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 700;
+  }
+  .job li strong { color: #22c55e; font-weight: 700; }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 8pt; }
+  .project:last-child { margin-bottom: 0; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1pt;
+  }
+  .project-name {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #e5e7eb;
+  }
+  .project-url { font-size: 8pt; color: #22c55e; }
+  .project-tech {
+    font-size: 7.5pt;
+    color: #5c6370;
+    margin-bottom: 3pt;
+  }
+  .project ul { list-style: none; padding-left: 0; }
+  .project li {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    margin-bottom: 2pt;
+    padding-left: 16pt;
+    position: relative;
+    color: #abb2bf;
+  }
+  .project li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 700;
+  }
+  .project li strong { color: #22c55e; font-weight: 700; }
+
+  /* ── Education ── */
+  .edu-line {
+    font-size: 8pt;
+    color: #abb2bf;
+    margin-bottom: 1pt;
+  }
+  .edu-line .school { color: #e5e7eb; font-weight: 700; }
+  .edu-line .ver { color: #5c6370; }
+</style>
+</head>
+<body>
+
+<!-- ═══ Title bar ═══ -->
+<div class="titlebar">
+  <span class="dot dot-red"></span>
+  <span class="dot dot-yellow"></span>
+  <span class="dot dot-green"></span>
+  <span class="titlebar-text">dylan@portfolio ~ % cat resume.md</span>
+</div>
+
+<div class="content">
+
+<!-- ═══ Header ═══ -->
+<div class="header">
+  <div class="prompt-name"><span class="dollar">$</span> Dylan Ballard</div>
+  <div class="tagline">// Full-Stack Engineer — builds things that work</div>
+  <div class="config-block">
+    <div class="config-line"><span class="config-key">email</span><span class="config-sep"> = </span><span class="config-val">"dylanballard55@gmail.com"</span></div>
+    <div class="config-line"><span class="config-key">phone</span><span class="config-sep"> = </span><span class="config-val">"703-848-5998"</span></div>
+    <div class="config-line"><span class="config-key">location</span><span class="config-sep"> = </span><span class="config-val">"Reston, VA"</span></div>
+    <div class="config-line"><span class="config-key">github</span><span class="config-sep"> = </span><a href="https://github.com/dballard10"><span class="config-val">"github.com/dballard10"</span></a></div>
+    <div class="config-line"><span class="config-key">linkedin</span><span class="config-sep"> = </span><a href="https://linkedin.com/in/dballard55"><span class="config-val">"linkedin.com/in/dballard55"</span></a></div>
+  </div>
+</div>
+
+<!-- ═══ Skills ═══ -->
+<div class="section">
+  <div class="section-header"><span class="hash">##</span> dependencies</div>
+  <div class="install-line"><span class="dollar">$</span> <span class="cmd">npm i</span> <span class="pkg">react typescript next.js react-native vite tailwind zustand tanstack-query</span></div>
+  <div class="install-line"><span class="dollar">$</span> <span class="cmd">pip install</span> <span class="pkg">fastapi django pandas numpy celery asyncio sagemaker openai anthropic</span></div>
+  <div class="install-line"><span class="dollar">$</span> <span class="cmd">brew install</span> <span class="pkg">aws-cli docker terraform postgresql mysql git node postman</span></div>
+  <div class="install-line"><span class="dollar">$</span> <span class="cmd">apt-get</span> <span class="pkg">linux github-actions vercel railway jest pytest figma jira</span></div>
+</div>
+
+<!-- ═══ Experience ═══ -->
+<div class="section">
+  <div class="section-header"><span class="hash">##</span> experience</div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-company">Eigennet</span>
+      <span class="job-date">2024 – present</span>
+    </div>
+    <div class="job-title">Software Engineer</div>
+    <ul>
+      <li>Only engineer trusted with clearance to architect and operate a classified AWS document pipeline — <strong>500+ deliveries/month</strong>, <strong>99.7% success</strong>, zero supervision</li>
+      <li>Built an AI extraction engine on SageMaker that reads <strong>10K+ pages daily</strong> at <strong>99% accuracy</strong> — made manual review nearly obsolete, cutting human effort by <strong>85%</strong></li>
+      <li>Wrote the Python automation that killed <strong>20+ hours</strong> of weekly manual labor — metadata packaging, encryption, and SFTP delivery, fully end-to-end</li>
+      <li>Slashed transmission failures by <strong>90%</strong> with custom EC2/S3 batch orchestration and real-time API monitoring</li>
+      <li>Engineered the validation layer that catches bad data before it leaves the building — schema drift, anomaly flagging, zero downstream incidents</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-company">Freddie Mac</span>
+      <span class="job-date">2023</span>
+    </div>
+    <div class="job-title">Software Engineering Intern</div>
+    <ul>
+      <li>Built a data-validation engine in Java that the Financial Engineering team still runs — schema drift + anomaly detection across millions of CSV rows, <strong>60% less</strong> reconciliation effort</li>
+      <li>Wired up automated alerts that <strong>tripled</strong> the team's bug-catch rate before anything hit production</li>
+      <li>Took a quarterly process that dragged on for 2 weeks and compressed it to <strong>3 days</strong> — fully automated what nobody thought could be automated</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══ Projects ═══ -->
+<div class="section">
+  <div class="section-header"><span class="hash">##</span> projects</div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-name">Embark</span>
+      <a class="project-url" href="https://embark-theta.vercel.app">embark-theta.vercel.app</a>
+    </div>
+    <div class="project-tech">// react + typescript + fastapi + python + supabase</div>
+    <ul>
+      <li>Full RPG engine for real life — quests, XP, loot drops with rarity tiers, and a progression system that keeps <strong>50+ users</strong> coming back</li>
+      <li>Real-time everything: Supabase subscriptions, FastAPI WebSockets, live progress — no refresh needed</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-name">Cinetik</span>
+      <a class="project-url" href="https://cinetik.app">cinetik.app</a>
+    </div>
+    <div class="project-tech">// react + typescript + fastapi + python</div>
+    <ul>
+      <li>The movie tracker I always wanted — TMDB integration, TanStack Query, Zustand state, PostgreSQL handling <strong>500K+ records</strong></li>
+      <li>Responsive Tailwind UI that works on everything, deployed to production</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══ Education ═══ -->
+<div class="section">
+  <div class="section-header"><span class="hash">##</span> education</div>
+  <div class="edu-line"><span class="school">George Mason University</span> <span class="dim">—</span> M.S. Computer Science <span class="ver">v2024-present</span></div>
+  <div class="edu-line"><span class="school">James Madison University</span> <span class="dim">—</span> B.S. Computer Science <span class="ver">v2020-2024</span></div>
+</div>
+
+</div>
+</body>
+</html>

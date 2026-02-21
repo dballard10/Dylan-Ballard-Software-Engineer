@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dylan Ballard — Resume (Glacier)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap');
+
+  @page { size: letter; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    background: #0f1923;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { text-decoration: none; color: #14b8a6; }
+
+  /* ── Top accent bar ── */
+  .top-bar {
+    height: 2px;
+    background: linear-gradient(90deg, #14b8a6, #67e8f9, #14b8a6);
+    flex-shrink: 0;
+  }
+
+  /* ── Top zone ── */
+  .top-zone {
+    background: linear-gradient(180deg, #0a1219 0%, #0f1923 100%);
+    padding: 0.3in 0.45in 0.22in;
+    border-bottom: 2px solid #14b8a6;
+    flex-shrink: 0;
+  }
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12pt;
+  }
+  .top-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 26pt;
+    font-weight: 700;
+    color: #f0f4f8;
+    line-height: 1;
+  }
+  .top-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #14b8a6;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 2pt;
+  }
+  .top-contact {
+    font-size: 8.5pt;
+    color: #8899aa;
+    text-align: right;
+    line-height: 1.5;
+  }
+  .top-contact a { color: #67e8f9; }
+  .top-contact .dot { color: #14b8a6; margin: 0 3px; }
+
+  /* ── Skills grid ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6pt;
+    border-top: 1px solid #1e2d3d;
+    padding-top: 10pt;
+  }
+  .skill-group {}
+  .skill-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #14b8a6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2pt;
+  }
+  .skill-items {
+    font-size: 7.5pt;
+    color: #8899aa;
+    line-height: 1.55;
+  }
+
+  /* ── Lower zone ── */
+  .lower-zone {
+    display: flex;
+    flex: 1;
+    padding: 0.25in 0.45in 0.35in;
+    gap: 0.35in;
+  }
+  .col-left { flex: 55; }
+  .col-right { flex: 45; }
+
+  /* ── Section headers ── */
+  .section-header {
+    font-family: 'Sora', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #f0f4f8;
+    margin-bottom: 10pt;
+    padding-bottom: 4pt;
+    border-bottom: 1px solid #1e2d3d;
+    position: relative;
+  }
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: #14b8a6;
+  }
+
+  /* ── Experience ── */
+  .job { margin-bottom: 12pt; }
+  .job:last-child { margin-bottom: 0; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .job-company { font-size: 10pt; font-weight: 700; color: #f0f4f8; }
+  .job-date { font-size: 8pt; color: #14b8a6; flex-shrink: 0; }
+  .job-title { font-size: 9pt; font-weight: 400; color: #8899aa; margin-bottom: 4pt; }
+  .job ul { list-style: none; padding-left: 0; }
+  .job li {
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: #c8d6e5;
+    margin-bottom: 3pt;
+    padding-left: 14pt;
+    position: relative;
+  }
+  .job li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #14b8a6;
+    font-family: 'Sora', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+  }
+  .job li strong { color: #f0f4f8; font-weight: 600; }
+
+  /* ── Projects ── */
+  .project { margin-bottom: 10pt; }
+  .project:last-child { margin-bottom: 0; }
+  .project-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1pt; }
+  .project-name { font-size: 9.5pt; font-weight: 700; color: #f0f4f8; }
+  .project-url { font-size: 7.5pt; color: #67e8f9; }
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 4pt;
+  }
+  .project-tech .pill {
+    font-size: 6.5pt;
+    font-weight: 500;
+    color: #14b8a6;
+    border: 1px solid #0f766e;
+    background: rgba(20, 184, 166, 0.08);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+  .project ul { list-style: none; padding-left: 0; }
+  .project li {
+    font-size: 8.5pt;
+    line-height: 1.5;
+    color: #c8d6e5;
+    margin-bottom: 2pt;
+    padding-left: 14pt;
+    position: relative;
+  }
+  .project li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #14b8a6;
+    font-family: 'Sora', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+  }
+  .project li strong { color: #f0f4f8; font-weight: 600; }
+
+  /* ── Education ── */
+  .edu-entry { margin-bottom: 6pt; }
+  .edu-entry:last-child { margin-bottom: 0; }
+  .edu-school { font-size: 8.5pt; font-weight: 600; color: #f0f4f8; }
+  .edu-degree { font-size: 8pt; color: #8899aa; }
+  .edu-date { font-size: 7.5pt; color: #14b8a6; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ═══ Top Zone ═══ -->
+<div class="top-zone">
+  <div class="top-header">
+    <div>
+      <div class="top-name">Dylan Ballard</div>
+      <div class="top-title">Full-Stack Software Engineer</div>
+    </div>
+    <div class="top-contact">
+      <a href="mailto:dylanballard55@gmail.com">dylanballard55@gmail.com</a> <span class="dot">&middot;</span> 703-848-5998 <span class="dot">&middot;</span> Reston, VA<br>
+      <a href="https://github.com/dballard10">github.com/dballard10</a> <span class="dot">&middot;</span> <a href="https://linkedin.com/in/dballard55">linkedin.com/in/dballard55</a>
+    </div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-label">Frontend</div>
+      <div class="skill-items">React, TypeScript, JavaScript,<br>Next.js, Vite, Tailwind CSS,<br>Zustand, TanStack Query</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Backend</div>
+      <div class="skill-items">Python, FastAPI, Django,<br>PostgreSQL, Supabase,<br>GraphQL, REST APIs</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Cloud & DevOps</div>
+      <div class="skill-items">AWS (EC2, S3, SageMaker),<br>Docker, Terraform, CI/CD,<br>Vercel, GitHub Actions</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Tools</div>
+      <div class="skill-items">Git, Postman, Figma, Jira,<br>Jest, Pytest, Linux</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Lower Zone ═══ -->
+<div class="lower-zone">
+
+  <!-- Left: Experience -->
+  <div class="col-left">
+    <div class="section-header">Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Eigennet</span>
+        <span class="job-date">2024 – Present</span>
+      </div>
+      <div class="job-title">Software Engineer</div>
+      <ul>
+        <li>Sole cleared developer managing a secure AWS document transmission pipeline, delivering <strong>500+ classified documents monthly</strong> with a <strong>99.7%</strong> success rate</li>
+        <li>Engineered an AI extraction engine on SageMaker processing <strong>10K+ pages daily</strong> at <strong>99% accuracy</strong>, reducing manual review effort by <strong>85%</strong></li>
+        <li>Automated metadata packaging, encryption, and SFTP delivery in Python, eliminating <strong>20+ hours/week</strong> of manual work</li>
+        <li>Built EC2/S3 batch workflows with real-time API-driven monitoring, reducing transmission failures by <strong>90%</strong></li>
+        <li>Developed validation pipelines for schema drift and anomaly detection, preventing downstream data incidents</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Freddie Mac</span>
+        <span class="job-date">2023</span>
+      </div>
+      <div class="job-title">Software Engineering Intern</div>
+      <ul>
+        <li>Developed a Java data-validation tool detecting anomalies and schema drift across financial CSV datasets, cutting reconciliation effort by <strong>60%</strong></li>
+        <li>Integrated automated version-mismatch alerts, catching <strong>3x more</strong> integrity issues before production</li>
+        <li>Compressed quarterly reconciliation from <strong>2 weeks to 3 days</strong> through automated CSV comparison workflows</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right: Projects + Education -->
+  <div class="col-right">
+    <div class="section-header">Projects</div>
+
+    <div class="project">
+      <div class="project-top">
+        <span class="project-name">Embark</span>
+        <a class="project-url" href="https://embark-theta.vercel.app">embark-theta.vercel.app</a>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FastAPI</span><span class="pill">Python</span><span class="pill">Supabase</span>
+      </div>
+      <ul>
+        <li>Life gamification app with RPG quest engine — users earn XP, collect rarity-tiered items, and level up through real-world challenges</li>
+        <li>Real-time Supabase + FastAPI backend serving <strong>50+ active users</strong> with WebSocket progress tracking</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <span class="project-name">Cinetik</span>
+        <a class="project-url" href="https://cinetik.app">cinetik.app</a>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">FastAPI</span><span class="pill">Python</span>
+      </div>
+      <ul>
+        <li>Full-stack media tracking app with TMDB integration, TanStack Query, and Zustand state management</li>
+        <li>PostgreSQL backend handling <strong>500K+ records</strong> with responsive Tailwind UI</li>
+      </ul>
+    </div>
+
+    <div class="section-header" style="margin-top: 14pt;">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-school">George Mason University</div>
+      <div class="edu-degree">M.S. Computer Science</div>
+      <div class="edu-date">2024 – Present</div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">James Madison University</div>
+      <div class="edu-degree">B.S. Computer Science</div>
+      <div class="edu-date">2020 – 2024</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
