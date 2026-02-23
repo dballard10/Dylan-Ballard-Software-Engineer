@@ -1,0 +1,116 @@
+import type { ProfileData } from "./types";
+
+export const profile: ProfileData = {
+  name: "Dylan Ballard",
+  title: "Full-Stack Software Engineer",
+  profileImage: "/assets/profile-pic.webp",
+  resumeUrl: "/DylanBallardResume2025.pdf",
+
+  contact: {
+    phone: "(703) 848-5998",
+    email: "dylanballard55@gmail.com",
+    location: "Reston, VA",
+    github: { url: "https://github.com/dballard10", label: "github.com/dballard10" },
+    linkedin: { url: "https://linkedin.com/in/dballard55", label: "linkedin.com/in/dballard55" },
+  },
+
+  skills: [
+    {
+      name: "Frontend Development",
+      skills: [
+        { name: "React (Hooks, Context, Suspense)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "JavaScript (ES6+)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "React Native", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg" },
+        { name: "Vite", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vite.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
+        { name: "Zustand", icon: "/assets/technologies/zustand.svg" },
+        { name: "TanStack Query", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/reactquery.svg", colorIcon: "/assets/technologies/tanstack-query.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "Responsive Design & A11y", icon: "/assets/technologies/the-a11y-project.svg" },
+        { name: "Component Architecture & Design Systems", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      ],
+    },
+    {
+      name: "Backend Development",
+      skills: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "SQL", icon: "/assets/technologies/sql-database.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postgresql.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "MySQL", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mysql.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "Supabase", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+        { name: "Render", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/render.svg" },
+        { name: "RESTful & GraphQL APIs", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/graphql.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+        { name: "Auth (JWT, OAuth)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jsonwebtokens.svg" },
+        { name: "LLM Integrations (OpenAI, Anthropic, Bedrock)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" },
+        { name: "Async Processing (Celery, asyncio)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
+        { name: "ETL Pipelines & Data Processing", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
+        { name: "Pandas", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pandas.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/numpy.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+      ],
+    },
+    {
+      name: "Cloud & DevOps",
+      skills: [
+        { name: "AWS (EC2, S3, RDS, Lambda, SageMaker)", icon: "/assets/technologies/aws.svg" },
+        { name: "Docker & Containerization", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "CI/CD (GitHub Actions, Railway)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/githubactions.svg" },
+        { name: "Vercel", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vercel.svg" },
+        { name: "Railway Deployments", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/railway.svg" },
+        { name: "Monitoring (CloudWatch)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg" },
+        { name: "IaC & Terraform", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/terraform.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
+        { name: "Linux Systems & Shell Scripting", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linux.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      ],
+    },
+    {
+      name: "Tools & Collaboration",
+      skills: [
+        { name: "Cursor", icon: "/assets/technologies/cursor.svg" },
+        { name: "VS Code", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visualstudiocode.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "Git", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "GitHub", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "NPM", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/npm.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+        { name: "pnpm", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pnpm.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pnpm/pnpm-original.svg" },
+        { name: "Postman", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+        { name: "Figma (UI/UX)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { name: "Agile", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jira.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+        { name: "Scrum", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jira.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+        { name: "Jira", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jira.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+        { name: "Testing (Jest, Pytest, Vitest)", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jest.svg", colorIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+        { name: "Technical Writing & Documentation", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/markdown.svg" },
+      ],
+    },
+  ],
+
+  projects: [
+    {
+      title: "Embark",
+      image: "/assets/projects/embark.webp",
+      tech: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
+        { name: "Supabase", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg" },
+      ],
+      description: "Life gamification web app that turns real-world activities into RPG-style quests. Users complete challenges, earn Glory currency and XP, level up, and collect items with rarity tiers.",
+      shortDescription: "Life gamification app. Quests, XP, loot.",
+      url: "https://embark-theta.vercel.app",
+    },
+    {
+      title: "Cinetik",
+      image: "/assets/projects/cinetik.webp",
+      tech: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
+      ],
+      description: "Full-stack media tracking and social app for movies and TV shows. Users track favorites and manage watchlists.",
+      shortDescription: "Track movies and shows.",
+      url: "https://cinetik.app",
+    },
+  ],
+};
