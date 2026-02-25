@@ -29,10 +29,10 @@
     min-width: 2.55in;
     background: #1e293b;
     color: #e2e8f0;
-    padding: 0.38in 0.28in;
+    padding: 0.32in 0.28in;
     display: flex;
     flex-direction: column;
-    gap: 17pt;
+    gap: 12pt;
   }
 
   .sidebar-name {
@@ -59,7 +59,7 @@
     letter-spacing: 0.12em;
     padding-bottom: 4pt;
     border-bottom: 1.5px solid #334155;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
   }
 
   /* Contact */
@@ -67,7 +67,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 5pt;
+    gap: 4pt;
   }
   .contact-item {
     font-size: 8pt;
@@ -88,7 +88,7 @@
   .contact-item a { color: #93c5fd; }
 
   /* Skills */
-  .sidebar-skill-group { margin-bottom: 9pt; }
+  .sidebar-skill-group { margin-bottom: 7pt; }
   .sidebar-skill-group:last-child { margin-bottom: 0; }
   .sidebar-skill-label {
     font-size: 8.5pt;
@@ -99,11 +99,11 @@
   .sidebar-skill-items {
     font-size: 7.5pt;
     color: #94a3b8;
-    line-height: 1.6;
+    line-height: 1.45;
   }
 
   /* Education */
-  .edu-entry { margin-bottom: 9pt; }
+  .edu-entry { margin-bottom: 6pt; }
   .edu-entry:last-child { margin-bottom: 0; }
   .edu-school {
     font-size: 8.5pt;
@@ -127,11 +127,11 @@
   ══════════════════════════════════════ */
   .main {
     flex: 1;
-    padding: 0.38in 0.38in 0.38in 0.32in;
+    padding: 0.32in 0.38in 0.28in 0.32in;
     color: #1e293b;
     display: flex;
     flex-direction: column;
-    gap: 14pt;
+    gap: 12pt;
   }
 
   .main-section-header {
@@ -295,6 +295,10 @@
         <span class="icon">&#10095;</span>
         <a href="https://github.com/dballard10">github.com/dballard10</a>
       </li>
+      <li class="contact-item">
+        <span class="icon">&#9758;</span>
+        <a href="https://www.dylan-ballard.com">dylan-ballard.com</a>
+      </li>
     </ul>
   </div>
 
@@ -304,32 +308,32 @@
 
     <div class="sidebar-skill-group">
       <div class="sidebar-skill-label">Frontend</div>
-      <div class="sidebar-skill-items">React, TypeScript, JavaScript<br>Next.js, React Native, Vite<br>Zustand, TanStack Query<br>Tailwind CSS</div>
+      <div class="sidebar-skill-items">React 19, TypeScript, JavaScript<br>Next.js 16, React Native, Vite<br>Tailwind CSS v4, Zustand<br>TanStack Query, shadcn/ui<br>Radix UI, Framer Motion, Three.js</div>
     </div>
 
     <div class="sidebar-skill-group">
       <div class="sidebar-skill-label">Backend</div>
-      <div class="sidebar-skill-items">Python, FastAPI, Django<br>Node.js, REST APIs, GraphQL<br>Auth (JWT, OAuth), WebSockets<br>Celery, asyncio</div>
+      <div class="sidebar-skill-items">Python, FastAPI, Hono, Django<br>Node.js, Bun, Pydantic<br>REST APIs, GraphQL, WebSockets<br>SSE Streaming, Auth (JWT, OAuth)<br>Celery, asyncio</div>
+    </div>
+
+    <div class="sidebar-skill-group">
+      <div class="sidebar-skill-label">Databases &amp; ORM</div>
+      <div class="sidebar-skill-items">PostgreSQL, MySQL, SQLite<br>Supabase, Redis<br>Drizzle ORM, Prisma</div>
+    </div>
+
+    <div class="sidebar-skill-group">
+      <div class="sidebar-skill-label">AI &amp; Automation</div>
+      <div class="sidebar-skill-items">LLM Integrations (OpenAI<br>Anthropic, Bedrock)<br>Multi-Agent Architectures<br>Prompt Engineering, Playwright<br>ETL Pipelines, Pandas, NumPy</div>
     </div>
 
     <div class="sidebar-skill-group">
       <div class="sidebar-skill-label">Cloud &amp; DevOps</div>
-      <div class="sidebar-skill-items">AWS (EC2, S3, RDS, Lambda<br>SageMaker, CloudWatch)<br>Docker, Terraform, CI/CD<br>GitHub Actions, Vercel, Railway</div>
+      <div class="sidebar-skill-items">AWS (EC2, S3, RDS, Lambda<br>SageMaker, CloudWatch)<br>Docker, Terraform, CI/CD<br>Vercel, Fly.io, Railway<br>GitHub Actions, Linux</div>
     </div>
 
     <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Databases</div>
-      <div class="sidebar-skill-items">PostgreSQL, MySQL<br>Supabase, Redis</div>
-    </div>
-
-    <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">AI &amp; ML</div>
-      <div class="sidebar-skill-items">LLM Integrations (OpenAI<br>Anthropic, Bedrock)<br>ETL Pipelines, Pandas, NumPy</div>
-    </div>
-
-    <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Tools</div>
-      <div class="sidebar-skill-items">Git, Postman, Figma, Jira<br>Jest, Pytest, Vitest, Linux</div>
+      <div class="sidebar-skill-label">Tools &amp; Testing</div>
+      <div class="sidebar-skill-items">Git, Electron, Vitest, Jest<br>pytest, @testing-library/react<br>Zod, npm Workspaces<br>Postman, Figma, Jira</div>
     </div>
   </div>
 
@@ -338,13 +342,11 @@
     <div class="sidebar-section-header">Education</div>
     <div class="edu-entry">
       <div class="edu-school">George Mason University</div>
-      <div class="edu-degree">M.S. Computer Science</div>
-      <div class="edu-date">2024 – Present</div>
+      <div class="edu-degree">M.S. Computer Science, 2024 – Present</div>
     </div>
     <div class="edu-entry">
       <div class="edu-school">James Madison University</div>
-      <div class="edu-degree">B.S. Computer Science</div>
-      <div class="edu-date">2020 – 2024</div>
+      <div class="edu-degree">B.S. Computer Science, 2020 – 2024</div>
     </div>
   </div>
 
@@ -357,9 +359,9 @@
   <div>
     <div class="main-section-header">Summary</div>
     <p class="summary-text">
-      Full-stack engineer specializing in React, TypeScript, Python, and AWS. I build production systems end-to-end —
-      from PostgreSQL schema to responsive UI — with a focus on performance and fast iteration. Lately I've been
-      building AI/LLM-powered pipelines and exploring agentic workflows. I ship things, own them, and make them work at scale.
+      Full-stack engineer who ships production systems end-to-end — React 19 and TypeScript on the frontend,
+      Python and FastAPI on the backend, PostgreSQL underneath. Currently building multi-agent AI systems
+      and LLM-powered automation pipelines. Pursuing M.S. Computer Science at George Mason University.
     </p>
   </div>
 
@@ -376,8 +378,8 @@
       <ul>
         <li>Engineered LLM document extraction pipeline on AWS SageMaker achieving <strong>99% accuracy</strong>, processing <strong>10K+ pages/day</strong> and reducing manual review by <strong>85%</strong></li>
         <li>Automated Python SFTP delivery pipeline (metadata packaging, zip creation, encrypted transfer), delivering <strong>500+ classified documents monthly</strong> with <strong>99.7% success rate</strong> and eliminating <strong>20+ hrs/week</strong> of manual work</li>
-        <li>Built EC2/S3 batch workflows with API-driven transmission tracking, reducing delivery errors by <strong>90%</strong></li>
-        <li>Developed Django/Python validation pipelines detecting schema drift pre-delivery, preventing downstream data failures across partner systems</li>
+        <li>Implemented EC2/S3 batch workflows with API-driven transmission tracking, reducing delivery errors by <strong>90%</strong></li>
+        <li>Designed Django validation pipelines detecting schema drift pre-delivery, preventing downstream data failures across partner systems</li>
       </ul>
     </div>
 
@@ -413,8 +415,8 @@
         <span class="pill">Vercel</span>
       </div>
       <ul>
-        <li>Built full-stack life gamification app with RPG quest engine serving <strong>50+ active users</strong> — XP progression, Glory currency, rarity-tiered item collection</li>
-        <li>Architected real-time FastAPI/Supabase backend with WebSocket endpoints for live quest and progress updates</li>
+        <li>Developed full-stack productivity platform with RPG mechanics serving <strong>50+ active users</strong> — XP progression, quest engine, rarity-tiered item collection, and real-time leaderboards</li>
+        <li>Architected event-driven FastAPI/Supabase backend with WebSocket endpoints for live quest and progress updates</li>
       </ul>
     </div>
 
@@ -433,26 +435,45 @@
         <span class="pill">Zustand</span>
       </div>
       <ul>
-        <li>Built full-stack media tracking platform handling <strong>500K+ records</strong> with TMDB integration via TanStack Query and Zustand state management</li>
-        <li>Designed responsive Tailwind UI and optimized PostgreSQL query patterns for sub-100ms response times</li>
+        <li>Developed full-stack media tracking platform integrating the TMDB API with TanStack Query and Zustand state management across <strong>500K+ catalog records</strong></li>
+        <li>Optimized PostgreSQL query patterns and indexing strategy achieving sub-100ms response times with a responsive Tailwind CSS interface</li>
       </ul>
     </div>
 
     <div class="project">
       <div class="project-header">
-        <span class="project-name">Chess Opening Guide</span>
-        <a class="project-url" href="https://chess-opening-guide.vercel.app">chess-opening-guide.vercel.app</a>
+        <span class="project-name">Agni</span>
+        <a class="project-url" href="https://github.com/dballard10">github.com/dballard10</a>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React 19</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">Electron</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">Supabase</span>
+        <span class="pill">Vite</span>
+      </div>
+      <ul>
+        <li>Developed cross-platform notes and planning app for desktop (Electron) and web using a shared React 19 codebase in an npm workspaces monorepo with domain-first layered architecture</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Shipkitty</span>
+        <a class="project-url" href="https://github.com/dballard10">github.com/dballard10</a>
       </div>
       <div class="project-tech">
         <span class="pill">React</span>
         <span class="pill">TypeScript</span>
-        <span class="pill">Zustand</span>
-        <span class="pill">Vite</span>
-        <span class="pill">Vercel</span>
+        <span class="pill">Hono</span>
+        <span class="pill">Bun</span>
+        <span class="pill">Drizzle ORM</span>
+        <span class="pill">PostgreSQL</span>
+        <span class="pill">shadcn/ui</span>
       </div>
       <ul>
-        <li>Built interactive chess opening explorer — searchable openings database, variation trees, free play board, and themed boards — using React, TypeScript, and Zustand</li>
-        <li>Deployed mobile-first build to Vercel using Vite for production-grade performance</li>
+        <li>Architected AI agent observability dashboard with Hono/Bun backend, Drizzle ORM, and PostgreSQL — real-time session monitoring, replay, and undo support</li>
       </ul>
     </div>
   </div>
