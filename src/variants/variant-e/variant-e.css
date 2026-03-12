@@ -358,6 +358,10 @@
   transition: opacity 0.3s ease;
 }
 
+.ve-skills__card-icon--mono {
+  filter: invert(1);
+}
+
 .ve-skills__card:hover .ve-skills__card-icon {
   opacity: 1;
 }
@@ -727,13 +731,13 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.33%);
   }
 }
 
 @keyframes ve-marquee-left {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-33.33%);
   }
   100% {
     transform: translateX(0);

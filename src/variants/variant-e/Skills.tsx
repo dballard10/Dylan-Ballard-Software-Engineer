@@ -4,17 +4,52 @@ import ScrollAnimation from "../../shared/ScrollAnimation";
 import type { Skill } from "../../data/types";
 
 export default function Skills() {
-  const allSkills: Skill[] = useMemo(
-    () => profile.skills.flatMap((category) => category.skills),
-    []
-  );
+  // Split first 4 categories into 4 rows, agentic category gets its own 5th row
+  const { mainRows, agenticRow } = useMemo(() => {
+    const agenticCategory = profile.skills.find(
+      (c) => c.name === "AI & Agentic Development"
+    );
+    const mainSkills = profile.skills
+      .filter((c) => c.name !== "AI & Agentic Development")
+      .flatMap((c) => c.skills);
 
-  // Split skills into four rows
-  const quarter = Math.ceil(allSkills.length / 4);
-  const row1Skills = allSkills.slice(0, quarter);
-  const row2Skills = allSkills.slice(quarter, quarter * 2);
-  const row3Skills = allSkills.slice(quarter * 2, quarter * 3);
-  const row4Skills = allSkills.slice(quarter * 3);
+    const quarter = Math.ceil(mainSkills.length / 4);
+    return {
+      mainRows: [
+        mainSkills.slice(0, quarter),
+        mainSkills.slice(quarter, quarter * 2),
+        mainSkills.slice(quarter * 2, quarter * 3),
+        mainSkills.slice(quarter * 3),
+      ],
+      agenticRow: agenticCategory?.skills ?? [],
+    };
+  }, []);
+
+  const directions = ["right", "left", "right", "left", "right"] as const;
+
+  const renderRow = (skills: Skill[], rowIndex: number) => {
+    const dir = directions[rowIndex];
+    const tripled = [...skills, ...skills, ...skills];
+    return (
+      <div key={`row-${rowIndex}`} className="ve-skills__marquee-row">
+        <div className={`ve-skills__marquee-track ve-skills__marquee-track--${dir}`}>
+          {tripled.map((skill, i) => (
+            <div key={`r${rowIndex}-${i}`} className="ve-skills__card">
+              {skill.icon && (
+                <img
+                  src={skill.colorIcon || skill.icon}
+                  alt=""
+                  className={`ve-skills__card-icon${!skill.colorIcon ? " ve-skills__card-icon--mono" : ""}`}
+                  loading="lazy"
+                />
+              )}
+              <span className="ve-skills__card-name">{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="skills" className="ve-skills">
@@ -26,81 +61,8 @@ export default function Skills() {
 
       <ScrollAnimation delay={100}>
         <div className="ve-skills__marquee-wrapper">
-          {/* Row 1: scrolls right */}
-          <div className="ve-skills__marquee-row">
-            <div className="ve-skills__marquee-track ve-skills__marquee-track--right">
-              {[...row1Skills, ...row1Skills].map((skill, i) => (
-                <div key={`r1-${i}`} className="ve-skills__card">
-                  {skill.icon && (
-                    <img
-                      src={skill.colorIcon || skill.icon}
-                      alt=""
-                      className="ve-skills__card-icon"
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="ve-skills__card-name">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2: scrolls left */}
-          <div className="ve-skills__marquee-row">
-            <div className="ve-skills__marquee-track ve-skills__marquee-track--left">
-              {[...row2Skills, ...row2Skills].map((skill, i) => (
-                <div key={`r2-${i}`} className="ve-skills__card">
-                  {skill.icon && (
-                    <img
-                      src={skill.colorIcon || skill.icon}
-                      alt=""
-                      className="ve-skills__card-icon"
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="ve-skills__card-name">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 3: scrolls right */}
-          <div className="ve-skills__marquee-row">
-            <div className="ve-skills__marquee-track ve-skills__marquee-track--right">
-              {[...row3Skills, ...row3Skills].map((skill, i) => (
-                <div key={`r3-${i}`} className="ve-skills__card">
-                  {skill.icon && (
-                    <img
-                      src={skill.colorIcon || skill.icon}
-                      alt=""
-                      className="ve-skills__card-icon"
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="ve-skills__card-name">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 4: scrolls left */}
-          <div className="ve-skills__marquee-row">
-            <div className="ve-skills__marquee-track ve-skills__marquee-track--left">
-              {[...row4Skills, ...row4Skills].map((skill, i) => (
-                <div key={`r4-${i}`} className="ve-skills__card">
-                  {skill.icon && (
-                    <img
-                      src={skill.colorIcon || skill.icon}
-                      alt=""
-                      className="ve-skills__card-icon"
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="ve-skills__card-name">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          {mainRows.map((row, i) => renderRow(row, i))}
+          {renderRow(agenticRow, 4)}
         </div>
       </ScrollAnimation>
     </section>
