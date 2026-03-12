@@ -40,7 +40,7 @@ export default function Skills() {
                   src={skill.colorIcon || skill.icon}
                   alt=""
                   className={`ve-skills__card-icon${!skill.colorIcon ? " ve-skills__card-icon--mono" : ""}`}
-                  loading="lazy"
+
                 />
               )}
               <span className="ve-skills__card-name">{skill.name}</span>

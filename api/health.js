@@ -24,14 +24,28 @@ module.exports = async function handler(req, res) {
   }
   checks.apiKey = true;
 
-  // Test Resend connectivity (list domains — no email sent)
+  // Test Resend connectivity by validating the API key format and making a
+  // lightweight API call. We use the /emails endpoint with Resend's built-in
+  // test address which works with send-restricted keys.
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.domains.list();
-    if (error) {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "onboarding@resend.dev",
+        to: "delivered@resend.dev",
+        subject: "Health check",
+        text: "ping",
+      }),
+    });
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
       return res.status(500).json({
         status: "error",
-        error: `Resend API error: ${error.message}`,
+        error: `Resend API error (${response.status}): ${data.message || "unknown"}`,
         checks,
       });
     }

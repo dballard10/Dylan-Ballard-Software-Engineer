@@ -8,24 +8,73 @@ on:
     - cron: "0 8 * * *"
   workflow_dispatch: # Allow manual trigger for testing
 
+# Only runs against the main branch — never fires on feature branches or PRs
+# The schedule trigger already only runs on the default branch (main).
+# repository_dispatch also only runs on the default branch.
+# workflow_dispatch allows manual testing from any branch but that's intentional.
+
 jobs:
   diagnose-and-fix:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
     steps:
+      - name: Production-only gate
+        id: gate
+        run: |
+          # For schedule and repository_dispatch: only run on main
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual trigger — allowed on any branch for testing"
+            echo "allowed=true" >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "Running on main branch — allowed"
+            echo "allowed=true" >> $GITHUB_OUTPUT
+          else
+            echo "Not on main branch (${{ github.ref }}) — skipping"
+            echo "allowed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Circuit breaker — abort if looping
+        if: steps.gate.outputs.allowed == 'true'
+        id: circuit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check the last 3 completed runs of this workflow
+          RECENT=$(gh api repos/${{ github.repository }}/actions/workflows/self-heal-contact.yml/runs \
+            --jq '[.workflow_runs[:3] | .[] | select(.conclusion != null)] | length')
+
+          FAILED=$(gh api repos/${{ github.repository }}/actions/workflows/self-heal-contact.yml/runs \
+            --jq '[.workflow_runs[:3] | .[] | select(.conclusion == "failure")] | length')
+
+          echo "Recent runs: $RECENT, Failed: $FAILED"
+
+          # If the last 3 runs all failed, something is fundamentally wrong.
+          # Stop trying — a human needs to look at this.
+          if [ "$FAILED" -ge 3 ]; then
+            echo "Circuit breaker tripped: last 3 runs all failed. Aborting to prevent infinite loop."
+            echo "tripped=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "tripped=false" >> $GITHUB_OUTPUT
+
       - name: Checkout
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true'
         uses: actions/checkout@v4
 
       - name: Setup Node
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install dependencies
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true'
         run: npm ci
 
       - name: Health check
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true'
         id: health
         continue-on-error: true
         env:
@@ -46,12 +95,13 @@ jobs:
           "
 
       - name: Run tests (pre-check)
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true'
         id: pretest
         continue-on-error: true
         run: npm test
 
       - name: Self-heal with Claude
-        if: steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure'
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true' && (steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure')
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -91,7 +141,7 @@ jobs:
           " --allowedTools "Bash(run tests:*)" "Bash(git operations:*)" "Read" "Edit" "Write" "Grep" "Glob"
 
       - name: Push fix to main
-        if: steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure'
+        if: steps.gate.outputs.allowed == 'true' && steps.circuit.outputs.tripped != 'true' && (steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure')
         run: |
           # Only push if there are new commits from Claude
           if git log --oneline -1 | grep -v "$(git rev-parse origin/main --short)"; then
