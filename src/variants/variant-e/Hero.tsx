@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { profile } from "../../data/profile";
+import FontSwitcher from "./FontSwitcher";
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -48,13 +49,15 @@ export default function Hero() {
 
       </div>
 
+      <FontSwitcher />
+
       <div className="ve-hero__right">
         <p
           className={`ve-hero__tagline${
             visible ? " ve-hero__tagline--visible" : ""
           }`}
         >
-          I build end-to-end products for the web.
+          I build full-stack products end-to-end.
         </p>
       </div>
     </section>

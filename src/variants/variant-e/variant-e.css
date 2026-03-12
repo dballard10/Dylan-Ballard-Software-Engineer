@@ -116,7 +116,7 @@
 }
 
 .ve-hero__name-line {
-  font-family: var(--font-display);
+  font-family: var(--hero-name-font, var(--font-display));
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 800;
   line-height: 1.0;
@@ -894,6 +894,51 @@
 .ve-contact__textarea:focus-visible {
   outline: none;
   border-bottom-color: var(--accent-primary);
+}
+
+/* ── Font Switcher (dev tool) ── */
+.font-switcher {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(20, 20, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  font-family: var(--font-body);
+}
+
+.font-switcher__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 7rem;
+  text-align: center;
+  user-select: none;
+}
+
+.font-switcher__btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.font-switcher__btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ── Smooth scrolling ── */
