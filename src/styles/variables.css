@@ -42,7 +42,7 @@
   --pill-radius: 2rem;
 
   /* Typography */
-  --font-display: "Syne", "Inter", sans-serif;
+  --font-display: "Didot", "GFS Didot", "Bodoni MT", serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
 }

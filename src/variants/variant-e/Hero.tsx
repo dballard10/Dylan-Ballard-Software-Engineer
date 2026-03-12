@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { profile } from "../../data/profile";
-import FontSwitcher from "./FontSwitcher";
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -48,8 +47,6 @@ export default function Hero() {
         </p>
 
       </div>
-
-      <FontSwitcher />
 
       <div className="ve-hero__right">
         <p
