@@ -1,0 +1,99 @@
+name: Self-Heal Contact Form
+
+on:
+  repository_dispatch:
+    types: [contact-form-error]
+  schedule:
+    # Daily health check at 8am UTC (safety net)
+    - cron: "0 8 * * *"
+  workflow_dispatch: # Allow manual trigger for testing
+
+jobs:
+  diagnose-and-fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Health check
+        id: health
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          # Quick health check — if it passes, skip the fix
+          node -e "
+            const handler = require('./api/health.js');
+            const req = { method: 'GET', headers: {} };
+            const res = {
+              statusCode: 200,
+              setHeader() { return this; },
+              status(c) { this.statusCode = c; return this; },
+              json(d) { console.log(JSON.stringify(d)); process.exit(this.statusCode === 200 ? 0 : 1); },
+              end() { process.exit(0); }
+            };
+            handler(req, res);
+          "
+
+      - name: Run tests (pre-check)
+        id: pretest
+        continue-on-error: true
+        run: npm test
+
+      - name: Self-heal with Claude
+        if: steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+
+          # Get recent Vercel logs for context
+          npm install -g vercel
+          LOGS=$(vercel logs --token=$VERCEL_TOKEN --output=json 2>/dev/null | tail -100 || echo "Could not fetch Vercel logs")
+
+          # Get the dispatch payload if triggered by cron monitor
+          ERRORS='${{ toJSON(github.event.client_payload.errors) }}'
+
+          claude -p "
+          You are a self-healing agent for a portfolio website's contact form.
+
+          TRIGGER: The contact form health check or tests failed.
+
+          ERRORS FROM MONITOR: ${ERRORS}
+
+          RECENT VERCEL LOGS:
+          ${LOGS}
+
+          YOUR TASK:
+          1. Read api/send-email.js, src/utils/emailApi.ts, and api/health.js
+          2. Diagnose the root cause from the errors and logs above
+          3. Fix the issue in the code
+          4. Run 'npm test' to verify the fix
+          5. If tests pass, commit the fix with a descriptive message
+
+          RULES:
+          - Only fix code issues. If the problem is an expired API key or env var, create a file at .scratchpad/alert.md describing the issue so the owner knows.
+          - Do NOT modify test files to make tests pass — fix the actual code.
+          - Keep changes minimal and focused.
+          - If you cannot diagnose the issue, document what you found in .scratchpad/alert.md.
+          " --allowedTools "Bash(run tests:*)" "Bash(git operations:*)" "Read" "Edit" "Write" "Grep" "Glob"
+
+      - name: Push fix to main
+        if: steps.health.outcome == 'failure' || steps.pretest.outcome == 'failure'
+        run: |
+          # Only push if there are new commits from Claude
+          if git log --oneline -1 | grep -v "$(git rev-parse origin/main --short)"; then
+            git push origin main
+          fi

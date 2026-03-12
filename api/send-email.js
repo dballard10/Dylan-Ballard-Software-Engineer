@@ -84,7 +84,12 @@ This message was sent through your personal website contact form.
     });
 
     if (emailResponse.error) {
-      console.error("Resend API error:", emailResponse.error);
+      console.error(JSON.stringify({
+        type: "RESEND_API_ERROR",
+        timestamp: new Date().toISOString(),
+        error: emailResponse.error,
+        context: { firstName, email },
+      }));
       return res.status(500).json({
         message: "Failed to send email. Please try again later.",
       });
@@ -95,7 +100,12 @@ This message was sent through your personal website contact form.
       id: emailResponse.data?.id,
     });
   } catch (error) {
-    console.error("Email sending error:", error);
+    console.error(JSON.stringify({
+      type: "UNHANDLED_ERROR",
+      timestamp: new Date().toISOString(),
+      error: error.message || String(error),
+      stack: error.stack,
+    }));
     return res.status(500).json({
       message: "Internal server error. Please try again later.",
     });
