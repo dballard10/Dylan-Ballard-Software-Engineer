@@ -10,7 +10,7 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, index }: ProjectCardProps) {
-  const { ref, offset } = useScrollParallax(0.15);
+  const { ref } = useScrollParallax(0.15);
   const isEven = index % 2 === 1;
 
   return (
@@ -21,7 +21,6 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         <div
           ref={ref}
           className="ve-project__image-wrapper"
-          style={{ transform: `translateY(${offset}px)` }}
         >
           <img
             src={project.image}

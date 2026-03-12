@@ -26,11 +26,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: radial-gradient(
-    300px circle at 4px var(--glow-y, -200px),
-    rgba(var(--glow-color), var(--glow-opacity)),
-    transparent 70%
-  );
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {

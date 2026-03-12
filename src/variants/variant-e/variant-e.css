@@ -340,7 +340,7 @@
   border-radius: var(--pill-radius);
   white-space: nowrap;
   flex-shrink: 0;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.3s ease;
   cursor: default;
 }
 
@@ -354,12 +354,12 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  filter: grayscale(1) brightness(0.7);
-  transition: filter 0.3s ease;
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
 }
 
 .ve-skills__card:hover .ve-skills__card-icon {
-  filter: grayscale(0) brightness(1);
+  opacity: 1;
 }
 
 .ve-skills__card-name {
