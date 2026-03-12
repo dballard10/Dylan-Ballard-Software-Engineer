@@ -2,7 +2,7 @@ const { Resend } = require("resend");
 
 // Initialize Resend with your API key
 // In production, this should be set as an environment variable
-const resend = new Resend(
+let resend = new Resend(
   process.env.RESEND_API_KEY || "re_jTpsrL48_ALcLJKBKQwXBHerQgdnL6xKy"
 );
 
@@ -100,4 +100,8 @@ This message was sent through your personal website contact form.
       message: "Internal server error. Please try again later.",
     });
   }
+};
+
+module.exports._setClient = (client) => {
+  resend = client;
 };
