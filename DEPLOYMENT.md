@@ -95,7 +95,7 @@ npm run dev
 ### 📧 Email Configuration
 
 1. **Sender Domain**: Update `from: 'onboarding@resend.dev'` to your verified domain
-2. **Recipient**: Currently set to `dylanballard55@gmail.com`
+2. **Recipient**: Currently set to `dylanballard.builds@gmail.com`
 3. **Templates**: Professional HTML email with plain text fallback
 
 ---

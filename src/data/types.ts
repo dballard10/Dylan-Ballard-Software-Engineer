@@ -1,11 +1,12 @@
 export interface Project {
   title: string;
   image: string;
+  images?: string[];
   fallbackImage?: string;
   tech: TechItem[];
   description: string;
   shortDescription: string;
-  url: string;
+  url?: string;
 }
 
 export interface TechItem {
@@ -39,5 +40,6 @@ export interface ProfileData {
   profileImage: string;
   contact: ContactInfo;
   skills: SkillCategory[];
-  projects: Project[];
+  currentProjects: Project[];
+  pastProjects: Project[];
 }

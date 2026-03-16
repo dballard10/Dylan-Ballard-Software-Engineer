@@ -6,17 +6,7 @@ export default function About() {
       <div className="ve-about__content">
         <ScrollAnimation>
           <p className="ve-about__text ve-about__text--dropcap">
-            I'm a full-stack engineer who builds things end to end — from
-            database schemas to pixel-perfect UIs. My appetite for learning has
-            recently led me to explore AI integrations, agentic workflows, and
-            the intersection of LLMs and product development.
-          </p>
-        </ScrollAnimation>
-        <ScrollAnimation delay={150}>
-          <p className="ve-about__text">
-            When not shipping, I like working on side projects that let me
-            experiment with ideas I find interesting — gamification systems,
-            media platforms, and tools that solve problems I actually have.
+          I'm a full-stack engineer who builds from 0 to 1 and end-to-end. I take ideas and turn them into real products using my powerful problem solving skills and unmatched creativity. I build what you need from intricate database systems to intuitive user interfaces. I GOT IT.
           </p>
         </ScrollAnimation>
       </div>

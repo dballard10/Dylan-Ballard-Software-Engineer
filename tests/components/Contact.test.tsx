@@ -160,7 +160,7 @@ describe("Contact component", () => {
   it("disables submit button while sending", async () => {
     let resolveSubmit: (value: unknown) => void;
     mockSendEmail.mockImplementation(
-      () => new Promise((resolve) => { resolveSubmit = resolve; })
+      () => new Promise((resolve) => { resolveSubmit = resolve as typeof resolveSubmit; })
     );
     const user = userEvent.setup();
     render(<Contact />);

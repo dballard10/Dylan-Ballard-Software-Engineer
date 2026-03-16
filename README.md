@@ -216,6 +216,6 @@ The website is fully responsive with:
 ---
 
 **Dylan Ballard** - Software Engineer  
-📧 dylanballard55@gmail.com  
+📧 dylanballard.builds@gmail.com  
 🔗 [LinkedIn](https://linkedin.com/in/dballard55) | [GitHub](https://github.com/dballard10)  
 📍 Reston, VA

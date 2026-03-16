@@ -396,6 +396,25 @@
   text-transform: uppercase;
 }
 
+.ve-projects__section {
+  margin-bottom: 5rem;
+}
+
+.ve-projects__section:last-child {
+  margin-bottom: 0;
+}
+
+.ve-projects__section-label {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  margin-bottom: 3rem;
+}
+
 .ve-projects__list {
   display: flex;
   flex-direction: column;
@@ -419,27 +438,92 @@
   border-radius: var(--card-radius);
   overflow: hidden;
   will-change: transform;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
 
-.ve-project__image-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(225, 29, 72, 0);
-  transition: background 0.4s ease;
-  pointer-events: none;
-  border-radius: var(--card-radius);
-}
-
-.ve-project__image-wrapper:hover::after {
-  background: rgba(225, 29, 72, 0.1);
+.ve-project__image-wrapper:hover {
+  border-color: rgba(225, 29, 72, 0.7);
 }
 
 .ve-project__image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   border-radius: var(--card-radius);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  object-fit: cover;
+  object-position: top;
+}
+
+.ve-project__image--active {
+  position: relative;
+  opacity: 1;
+}
+
+.ve-project__carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.ve-project__image-wrapper:hover .ve-project__carousel-btn {
+  opacity: 1;
+}
+
+.ve-project__carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.ve-project__carousel-btn--prev {
+  left: 0.75rem;
+}
+
+.ve-project__carousel-btn--next {
+  right: 0.75rem;
+}
+
+.ve-project__carousel-dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ve-project__carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.ve-project__carousel-dot--active {
+  background: var(--accent-primary);
 }
 
 .ve-project__text {

@@ -7,7 +7,7 @@ export const profile: ProfileData = {
 
   contact: {
     phone: "(703) 848-5998",
-    email: "dylanballard55@gmail.com",
+    email: "dylanballard.builds@gmail.com",
     location: "Reston, VA",
     github: { url: "https://github.com/dballard10", label: "github.com/dballard10" },
     linkedin: { url: "https://linkedin.com/in/dballard55", label: "linkedin.com/in/dballard55" },
@@ -79,24 +79,37 @@ export const profile: ProfileData = {
     },
   ],
 
-  projects: [
+  currentProjects: [
     {
-      title: "Embark",
-      image: "/assets/projects/embark.webp",
+      title: "Shipkitty",
+      image: "/assets/projects/shipkitty/shipkitty-landing.webp",
+      images: [
+        "/assets/projects/shipkitty/shipkitty-landing.webp",
+        "/assets/projects/shipkitty/shipkitty-dashboard.webp",
+        "/assets/projects/shipkitty/shipkitty-session-events.webp",
+      ],
       tech: [
         { name: "React", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg" },
         { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" },
-        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" },
-        { name: "Python", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
-        { name: "Supabase", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg" },
+        { name: "Hono", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hono.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postgresql.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg" },
       ],
-      description: "Life gamification web app that turns real-world activities into RPG-style quests. Users complete challenges, earn Glory currency and XP, level up, and collect items with rarity tiers.",
-      shortDescription: "Life gamification app. Quests, XP, loot.",
-      url: "https://embark-theta.vercel.app",
+      description: "AI agent observability dashboard for monitoring, replaying, and analyzing autonomous coding agent sessions. Track costs and token usage across all your projects. View a history of all your projects, each session and even the.",
+      shortDescription: "AI agent observability dashboard.",
     },
+  ],
+
+  pastProjects: [
     {
       title: "Cinetik",
-      image: "/assets/projects/cinetik.webp",
+      image: "/assets/projects/cinetik/cinetik-trending.webp",
+      images: [
+        "/assets/projects/cinetik/cinetik-trending.webp",
+        "/assets/projects/cinetik/cinetik-movies.webp",
+        "/assets/projects/cinetik/cinetik-series.webp",
+        "/assets/projects/cinetik/cinetik-details.webp",
+      ],
       tech: [
         { name: "React", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg" },
         { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" },
@@ -106,6 +119,24 @@ export const profile: ProfileData = {
       description: "Full-stack media tracking and social app for movies and TV shows. Users track favorites and manage watchlists.",
       shortDescription: "Track movies and shows.",
       url: "https://cinetik.app",
+    },
+    {
+      title: "Chess Opening Guide",
+      image: "/assets/projects/chess-opening-guide/chess-opening-guide-landing.webp",
+      images: [
+        "/assets/projects/chess-opening-guide/chess-opening-guide-landing.webp",
+        "/assets/projects/chess-opening-guide/chess-opening-guide-opening.webp",
+        "/assets/projects/chess-opening-guide/chess-opening-guide-help.webp",
+      ],
+      tech: [
+        { name: "Next.js", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg" },
+        { name: "TypeScript", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" },
+        { name: "Shadcn UI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shadcn.svg" },
+        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg" },
+      ],
+      description: "Chess opening guide for beginners. Users can learn about chess openings and practice them.",
+      shortDescription: "Chess opening guide for beginners.",
+      url: "https://chess-opening-guide.vercel.app",
     },
   ],
 };

@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
     // Send email using Resend
     const emailResponse = await resend.emails.send({
       from: "onboarding@resend.dev", // You'll need to verify your domain and update this
-      to: "dylanballard55@gmail.com",
+      to: "dylanballard.builds@gmail.com",
       subject: `Contact Form: Message from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
