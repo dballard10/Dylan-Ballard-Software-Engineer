@@ -116,9 +116,9 @@ export const profile: ProfileData = {
         { name: "FastAPI", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/fastapi.svg" },
         { name: "Python", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" },
       ],
-      description: "Full-stack media tracking and social app for movies and TV shows. Users track favorites and manage watchlists.",
-      shortDescription: "Track movies and shows.",
-      url: "https://cinetik.app",
+      description: "Web app for finding movies and TV shows. Users can search for movies and TV shows and view details about them. All data is sourced from the TMDB API.",
+      shortDescription: "Find movies and TV shows.",
+      url: "https://cinetik.vercel.app",
     },
     {
       title: "Chess Opening Guide",
