@@ -77,13 +77,16 @@
     gap: 7px;
     line-height: 1.3;
   }
-  .contact-item .icon {
-    font-size: 9pt;
-    color: #60a5fa;
-    width: 14px;
-    text-align: center;
+  .contact-item svg {
+    width: 12px;
+    height: 12px;
+    stroke: #60a5fa;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
     flex-shrink: 0;
-    margin-top: 0.5pt;
+    margin-top: 1pt;
   }
   .contact-item a { color: #93c5fd; }
 
@@ -131,17 +134,17 @@
     color: #1e293b;
     display: flex;
     flex-direction: column;
-    gap: 12pt;
+    gap: 9pt;
   }
 
   .main-section-header {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: 700;
     color: #1e293b;
     padding-left: 9px;
     border-left: 3px solid #60a5fa;
-    margin-bottom: 9pt;
+    margin-bottom: 7pt;
   }
 
   /* Summary */
@@ -155,7 +158,7 @@
   }
 
   /* Experience */
-  .job { margin-bottom: 11pt; }
+  .job { margin-bottom: 8pt; }
   .job:last-child { margin-bottom: 0; }
   .job-header {
     display: flex;
@@ -185,9 +188,9 @@
   }
   .job li {
     font-size: 8.5pt;
-    line-height: 1.45;
+    line-height: 1.4;
     color: #374151;
-    margin-bottom: 3pt;
+    margin-bottom: 2pt;
     padding-left: 12pt;
     position: relative;
   }
@@ -204,7 +207,7 @@
   .job li strong { color: #1e293b; font-weight: 600; }
 
   /* Projects */
-  .project { margin-bottom: 11pt; }
+  .project { margin-bottom: 8pt; }
   .project:last-child { margin-bottom: 0; }
   .project-header {
     display: flex;
@@ -241,9 +244,9 @@
   }
   .project li {
     font-size: 8.5pt;
-    line-height: 1.45;
+    line-height: 1.4;
     color: #374151;
-    margin-bottom: 3pt;
+    margin-bottom: 2pt;
     padding-left: 12pt;
     position: relative;
   }
@@ -258,6 +261,15 @@
     background: #60a5fa;
   }
   .project li strong { color: #1e293b; font-weight: 600; }
+
+  .project-group-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4pt;
+  }
 </style>
 </head>
 <body>
@@ -276,27 +288,27 @@
     <div class="sidebar-section-header">Contact</div>
     <ul class="contact-list">
       <li class="contact-item">
-        <span class="icon">&#9993;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
         <a href="mailto:dylanballard55@gmail.com">dylanballard55@gmail.com</a>
       </li>
       <li class="contact-item">
-        <span class="icon">&#9742;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
         (703) 848-5998
       </li>
       <li class="contact-item">
-        <span class="icon">&#9906;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
         Reston, VA
       </li>
       <li class="contact-item">
-        <span class="icon">&#9741;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 11l0 5" /><path d="M8 8l0 .01" /><path d="M12 16l0 -5" /><path d="M16 16v-3a2 2 0 0 0 -4 0" /></svg>
         <a href="https://linkedin.com/in/dballard55">linkedin.com/in/dballard55</a>
       </li>
       <li class="contact-item">
-        <span class="icon">&#10095;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
         <a href="https://github.com/dballard10">github.com/dballard10</a>
       </li>
       <li class="contact-item">
-        <span class="icon">&#9758;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
         <a href="https://www.dylan-ballard.com">dylan-ballard.com</a>
       </li>
     </ul>
@@ -306,34 +318,34 @@
   <div>
     <div class="sidebar-section-header">Skills</div>
 
+    <!-- Frontend Development -->
     <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Frontend</div>
-      <div class="sidebar-skill-items">React 19, TypeScript, JavaScript<br>Next.js 16, React Native, Vite<br>Tailwind CSS v4, Zustand<br>TanStack Query, shadcn/ui<br>Radix UI, Framer Motion, Three.js</div>
+      <div class="sidebar-skill-label">Frontend Development</div>
+      <div class="sidebar-skill-items">React, TypeScript, Next.js, Vite<br>Tailwind CSS, HTML5, CSS3</div>
     </div>
 
+    <!-- Backend Development -->
     <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Backend</div>
-      <div class="sidebar-skill-items">Python, FastAPI, Hono, Django<br>Node.js, Bun, Pydantic<br>REST APIs, GraphQL, WebSockets<br>SSE Streaming, Auth (JWT, OAuth)<br>Celery, asyncio</div>
+      <div class="sidebar-skill-label">Backend Development</div>
+      <div class="sidebar-skill-items">Python, FastAPI, SQL, PostgreSQL<br>RESTful APIs, Auth (JWT, Google<br>OAuth, Github OAuth)<br>Async Processing, Pandas<br>Database Design</div>
     </div>
 
-    <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Databases &amp; ORM</div>
-      <div class="sidebar-skill-items">PostgreSQL, MySQL, SQLite<br>Supabase, Redis<br>Drizzle ORM, Prisma</div>
-    </div>
-
-    <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">AI &amp; Automation</div>
-      <div class="sidebar-skill-items">LLM Integrations (OpenAI<br>Anthropic, Bedrock)<br>Multi-Agent Architectures<br>Prompt Engineering, Playwright<br>ETL Pipelines, Pandas, NumPy</div>
-    </div>
-
+    <!-- Cloud & DevOps -->
     <div class="sidebar-skill-group">
       <div class="sidebar-skill-label">Cloud &amp; DevOps</div>
-      <div class="sidebar-skill-items">AWS (EC2, S3, RDS, Lambda<br>SageMaker, CloudWatch)<br>Docker, Terraform, CI/CD<br>Vercel, Fly.io, Railway<br>GitHub Actions, Linux</div>
+      <div class="sidebar-skill-items">AWS (EC2, S3, RDS, Lambda<br>SageMaker, CloudWatch)<br>Vercel, Railway, Fly.io, Docker<br>Bash / Shell Scripting<br>CI/CD (GitHub Actions)</div>
     </div>
 
+    <!-- Tools & Collaboration -->
     <div class="sidebar-skill-group">
-      <div class="sidebar-skill-label">Tools &amp; Testing</div>
-      <div class="sidebar-skill-items">Git, Electron, Vitest, Jest<br>pytest, @testing-library/react<br>Zod, npm Workspaces<br>Postman, Figma, Jira</div>
+      <div class="sidebar-skill-label">Tools &amp; Collaboration</div>
+      <div class="sidebar-skill-items">Cursor, VS Code, Git, GitHub<br>Node.js, NPM, Postman<br>Figma (UI/UX), Agile<br>Testing (Jest, Pytest, Vitest)</div>
+    </div>
+
+    <!-- Agentic Development -->
+    <div class="sidebar-skill-group">
+      <div class="sidebar-skill-label">Agentic Development</div>
+      <div class="sidebar-skill-items">Agentic coding workflows<br>LLM-assisted architecture<br>&amp; debugging<br>Prompt engineering for development<br>Rapid prototyping with AI copilots</div>
     </div>
   </div>
 
@@ -359,9 +371,7 @@
   <div>
     <div class="main-section-header">Summary</div>
     <p class="summary-text">
-      Full-stack engineer who ships production systems end-to-end — React 19 and TypeScript on the frontend,
-      Python and FastAPI on the backend, PostgreSQL underneath. Currently building multi-agent AI systems
-      and LLM-powered automation pipelines. Pursuing M.S. Computer Science at George Mason University.
+      Full-stack engineer who thrives on ownership and building real products from zero to production. I build fast, scalable products with React, TypeScript, FastAPI, and PostgreSQL, and I'm finishing my M.S. in Computer Science at George Mason University.
     </p>
   </div>
 
@@ -374,12 +384,12 @@
         <span class="job-company">Eigennet</span>
         <span class="job-date">2024 – Present</span>
       </div>
-      <div class="job-title">Software Engineer &mdash; Reston, VA</div>
+      <div class="job-title">Software Engineer</div>
       <ul>
-        <li>Engineered LLM document extraction pipeline on AWS SageMaker achieving <strong>99% accuracy</strong>, processing <strong>10K+ pages/day</strong> and reducing manual review by <strong>85%</strong></li>
-        <li>Automated Python SFTP delivery pipeline (metadata packaging, zip creation, encrypted transfer), delivering <strong>500+ classified documents monthly</strong> with <strong>99.7% success rate</strong> and eliminating <strong>20+ hrs/week</strong> of manual work</li>
-        <li>Implemented EC2/S3 batch workflows with API-driven transmission tracking, reducing delivery errors by <strong>90%</strong></li>
-        <li>Designed Django validation pipelines detecting schema drift pre-delivery, preventing downstream data failures across partner systems</li>
+        <li>Engineered an AI-powered extraction pipeline (Python, Django, Claude) to process <strong>800K+ documents</strong>, significantly reducing manual processing time</li>
+        <li>Owned and developed an end-to-end automated transmission system for file packaging, data integrity checks, and SFTP delivery, ensuring reliable transfer of <strong>800K+ files</strong></li>
+        <li>Maintained and enhanced Doc2Data, a full-stack web app (React, TypeScript, Django) enabling non-technical users to manage and update extracted data</li>
+        <li>Experience using and managing AWS EC2, S3, Lambda, and more</li>
       </ul>
     </div>
 
@@ -388,11 +398,20 @@
         <span class="job-company">Freddie Mac</span>
         <span class="job-date">2023</span>
       </div>
-      <div class="job-title">Software Engineering Intern &mdash; McLean, VA</div>
+      <div class="job-title">Software Engineering Intern</div>
       <ul>
-        <li>Designed Java data validation tool detecting anomalies and schema drift across large financial CSV datasets, reducing reconciliation effort by <strong>60%</strong></li>
-        <li>Implemented automated version-mismatch alerts, catching <strong>3x more</strong> data integrity issues before production</li>
-        <li>Accelerated quarterly reconciliation from <strong>2 weeks to 3 days</strong> through automated CSV comparison workflows</li>
+        <li>Developed a Java-based data validation tool to detect anomalies and schema drift across large financial CSV datasets for the financial engineering team</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Criterion Systems</span>
+        <span class="job-date">2022</span>
+      </div>
+      <div class="job-title">Software Engineering Intern</div>
+      <ul>
+        <li>Developed a VBA-based Excel tool to validate <strong>1,700+ records</strong>, enabling non-technical users to quickly identify and correct formatting errors</li>
       </ul>
     </div>
   </div>
@@ -401,79 +420,58 @@
   <div>
     <div class="main-section-header">Projects</div>
 
-    <div class="project">
-      <div class="project-header">
-        <span class="project-name">Embark</span>
-        <a class="project-url" href="https://embark-theta.vercel.app">embark-theta.vercel.app</a>
-      </div>
-      <div class="project-tech">
-        <span class="pill">React</span>
-        <span class="pill">TypeScript</span>
-        <span class="pill">FastAPI</span>
-        <span class="pill">Python</span>
-        <span class="pill">Supabase</span>
-        <span class="pill">Vercel</span>
-      </div>
-      <ul>
-        <li>Developed full-stack productivity platform with RPG mechanics serving <strong>50+ active users</strong> — XP progression, quest engine, rarity-tiered item collection, and real-time leaderboards</li>
-        <li>Architected event-driven FastAPI/Supabase backend with WebSocket endpoints for live quest and progress updates</li>
-      </ul>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <span class="project-name">Cinetik</span>
-        <a class="project-url" href="https://cinetik.app">cinetik.app</a>
-      </div>
-      <div class="project-tech">
-        <span class="pill">React</span>
-        <span class="pill">TypeScript</span>
-        <span class="pill">FastAPI</span>
-        <span class="pill">Python</span>
-        <span class="pill">PostgreSQL</span>
-        <span class="pill">TanStack Query</span>
-        <span class="pill">Zustand</span>
-      </div>
-      <ul>
-        <li>Developed full-stack media tracking platform integrating the TMDB API with TanStack Query and Zustand state management across <strong>500K+ catalog records</strong></li>
-        <li>Optimized PostgreSQL query patterns and indexing strategy achieving sub-100ms response times with a responsive Tailwind CSS interface</li>
-      </ul>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <span class="project-name">Agni</span>
-        <a class="project-url" href="https://github.com/dballard10">github.com/dballard10</a>
-      </div>
-      <div class="project-tech">
-        <span class="pill">React 19</span>
-        <span class="pill">TypeScript</span>
-        <span class="pill">Electron</span>
-        <span class="pill">FastAPI</span>
-        <span class="pill">Supabase</span>
-        <span class="pill">Vite</span>
-      </div>
-      <ul>
-        <li>Developed cross-platform notes and planning app for desktop (Electron) and web using a shared React 19 codebase in an npm workspaces monorepo with domain-first layered architecture</li>
-      </ul>
-    </div>
+    <div class="project-group-label">Current</div>
 
     <div class="project">
       <div class="project-header">
         <span class="project-name">Shipkitty</span>
-        <a class="project-url" href="https://github.com/dballard10">github.com/dballard10</a>
       </div>
       <div class="project-tech">
         <span class="pill">React</span>
         <span class="pill">TypeScript</span>
-        <span class="pill">Hono</span>
-        <span class="pill">Bun</span>
-        <span class="pill">Drizzle ORM</span>
+        <span class="pill">FastAPI</span>
         <span class="pill">PostgreSQL</span>
-        <span class="pill">shadcn/ui</span>
       </div>
       <ul>
-        <li>Architected AI agent observability dashboard with Hono/Bun backend, Drizzle ORM, and PostgreSQL — real-time session monitoring, replay, and undo support</li>
+        <li>Building an AI agent observability dashboard to help developers track token usage, cost, latency, and tool calls across Claude sessions in the Cursor IDE</li>
+        <li>Engineered a real-time proxy to intercept and analyze Claude API traffic, capturing tokens, latency, tool calls, and session data</li>
+        <li>Designed and built a fast, developer-friendly UI for exploring agent behavior and historical sessions</li>
+        <li>Integrated OAuth authentication via GitHub and Google</li>
+      </ul>
+    </div>
+
+    <div class="project-group-label">Past</div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Cinetik</span>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">TMDB API</span>
+        <span class="pill">TanStack Query</span>
+        <span class="pill">Zustand</span>
+      </div>
+      <ul>
+        <li>Developed a media exploration platform enabling users to search and filter movies and TV shows via the TMDB API</li>
+        <li>Implemented efficient data fetching and caching with TanStack Query and managed global state with Zustand</li>
+        <li>Designed a clean, intuitive UI for seamless media exploration and detailed content views</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Chess Opening Guide</span>
+      </div>
+      <div class="project-tech">
+        <span class="pill">React</span>
+        <span class="pill">TypeScript</span>
+      </div>
+      <ul>
+        <li>Built an interactive chess opening platform for players to explore, learn, and practice opening variations</li>
+        <li>Created a dynamic system for navigating opening variations with guided move sequences</li>
+        <li>Designed flexible board interactions enabling users to experiment with custom positions and variations</li>
       </ul>
     </div>
   </div>
