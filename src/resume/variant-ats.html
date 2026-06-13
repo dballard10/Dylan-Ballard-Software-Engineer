@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dylan Ballard — Resume (ATS)</title>
+<style>
+  @page { size: letter; margin: 0.5in; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    color: #000000;
+    background: #ffffff;
+  }
+
+  a { color: #000000; text-decoration: none; }
+
+  /* Header */
+  .name {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+    margin-bottom: 2pt;
+  }
+  .title {
+    font-size: 11pt;
+    font-weight: 400;
+    margin-bottom: 5pt;
+  }
+  .contact {
+    font-size: 10pt;
+    margin-bottom: 4pt;
+  }
+  .clearance {
+    font-size: 10pt;
+    margin-bottom: 10pt;
+  }
+  .clearance .clearance-label {
+    font-weight: 700;
+  }
+  .contact span {
+    white-space: nowrap;
+  }
+  .contact span + span::before {
+    content: " | ";
+    white-space: normal;
+  }
+
+  /* Section headers */
+  h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 2pt;
+    margin-top: 10pt;
+    margin-bottom: 6pt;
+  }
+
+  /* Summary */
+  .summary {
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  /* Skills */
+  .skill-line {
+    font-size: 10.5pt;
+    line-height: 1.45;
+    margin-bottom: 2pt;
+  }
+  .skill-label {
+    font-weight: 700;
+  }
+
+  /* Experience & Projects */
+  .entry {
+    margin-bottom: 8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .entry:last-child { margin-bottom: 0; }
+
+  h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .group-label {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .entry-company {
+    font-size: 11pt;
+    font-weight: 700;
+  }
+  .entry-date {
+    font-size: 10.5pt;
+    font-weight: 400;
+  }
+  .entry-role {
+    font-size: 10.5pt;
+    font-weight: 400;
+    margin-bottom: 3pt;
+  }
+
+  .tech-line {
+    font-size: 10pt;
+    margin-bottom: 3pt;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2pt;
+  }
+  li {
+    font-size: 10.5pt;
+    line-height: 1.4;
+    margin-bottom: 2pt;
+    padding-left: 12pt;
+    text-indent: -12pt;
+  }
+  li::before {
+    content: "";
+  }
+
+  /* Projects subgroup label */
+  .group-label {
+    font-size: 10pt;
+    font-weight: 700;
+    margin-top: 4pt;
+    margin-bottom: 3pt;
+  }
+
+  /* Education */
+  .edu-entry {
+    margin-bottom: 4pt;
+  }
+  .edu-school {
+    font-weight: 700;
+    font-size: 10.5pt;
+  }
+  .edu-degree {
+    font-size: 10.5pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="name">Dylan Ballard</div>
+<div class="title">Full-Stack Software Engineer</div>
+<div class="contact">
+  <span><a href="mailto:dylanballard55@gmail.com">dylanballard55@gmail.com</a></span>
+  <span>(703) 848-5998</span>
+  <span>Reston, VA</span>
+  <span><a href="https://linkedin.com/in/dballard55">linkedin.com/in/dballard55</a></span>
+  <span><a href="https://github.com/dballard10">github.com/dballard10</a></span>
+  <span><a href="https://www.dylan-ballard.com">dylan-ballard.com</a></span>
+</div>
+<div class="clearance"><span class="clearance-label">Security Clearance:</span> Secret</div>
+
+<!-- Summary -->
+<h2>Summary</h2>
+<p class="summary">
+  Full-stack engineer who thrives on ownership and building real products from zero to production. I build fast, scalable products with React, TypeScript, FastAPI, and PostgreSQL, and I'm finishing my M.S. in Computer Science at George Mason University.
+</p>
+
+<!-- Skills -->
+<h2>Skills</h2>
+<div class="skill-line"><span class="skill-label">Frontend Development:</span> React, TypeScript, Next.js, Vite, Tailwind CSS, HTML5, CSS3</div>
+<div class="skill-line"><span class="skill-label">Backend Development:</span> Python, FastAPI, Node.js, Hono, SQL, PostgreSQL, Drizzle ORM, RESTful APIs, Auth (OAuth 2.1, JWT, Google OAuth, Github OAuth), Async Processing, Pandas, Database Design</div>
+<div class="skill-line"><span class="skill-label">Cloud &amp; DevOps:</span> AWS (EC2, S3, RDS, Lambda, SageMaker, CloudWatch), Vercel, Railway, Fly.io, Docker, Bash / Shell Scripting, CI/CD (GitHub Actions)</div>
+<div class="skill-line"><span class="skill-label">Tools &amp; Collaboration:</span> Cursor, VS Code, Git, GitHub, NPM, Postman, Figma (UI/UX), Agile, Testing (Jest, Pytest, Vitest, Playwright)</div>
+<div class="skill-line"><span class="skill-label">Agentic Development:</span> Claude Code (subagents, hooks, CLAUDE.md conventions), MCP server development, Agentic coding workflows, Prompt engineering, LLM-assisted architecture &amp; debugging</div>
+
+<!-- Experience -->
+<h2>Experience</h2>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-company">Eigennet (IRS, OPM)</span>
+    <span class="entry-date">2024 – Present</span>
+  </div>
+  <div class="entry-role">Software Engineer</div>
+  <ul>
+    <li>• Supporting a large-scale document-processing modernization effort</li>
+    <li>• Engineered an AI-powered extraction pipeline (Python, Django, Claude) to process 800K+ documents, significantly reducing manual processing time</li>
+    <li>• Owned and developed an end-to-end automated transmission system for file packaging, data integrity checks, and SFTP delivery, ensuring reliable transfer of 800K+ files</li>
+    <li>• Maintained and enhanced Doc2Data, a full-stack web app (React, TypeScript, Django) enabling non-technical users to manage and update extracted data</li>
+    <li>• Experience using and managing AWS EC2, S3, Lambda, and more</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-company">Freddie Mac</span>
+    <span class="entry-date">2023</span>
+  </div>
+  <div class="entry-role">Software Engineering Intern</div>
+  <ul>
+    <li>• Developed a Java-based data validation tool to detect anomalies and schema drift across large financial CSV datasets for the financial engineering team</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-company">Criterion Systems</span>
+    <span class="entry-date">2022</span>
+  </div>
+  <div class="entry-role">Software Engineering Intern</div>
+  <ul>
+    <li>• Developed a VBA-based Excel tool to validate 1,700+ records, enabling non-technical users to quickly identify and correct formatting errors</li>
+  </ul>
+</div>
+
+<!-- Projects -->
+<h2>Projects</h2>
+
+<div class="group-label">Current</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-company">Selas</span>
+    <span class="entry-date">selas.dev</span>
+  </div>
+  <div class="tech-line">Tech: TypeScript, React, Hono, PostgreSQL, Drizzle ORM, MCP (Model Context Protocol), OAuth 2.1</div>
+  <ul>
+    <li>• Built and shipped Selas (https://selas.dev), a production knowledge management app where users capture markdown entries, organize them into volumes and collections, and search their archive instantly</li>
+    <li>• Designed an MCP (Model Context Protocol) server exposing each user's archive to AI clients like Claude Desktop, secured with OAuth 2.1 dynamic client registration, scoped tokens, and per-user rate limiting</li>
+    <li>• Architected a transport-agnostic capability layer so REST routes and MCP tools share the same canonical data operations</li>
+    <li>• Deployed a TypeScript monorepo across Vercel and Railway (Dockerized Hono API) with Neon Postgres, Drizzle ORM, and Google OAuth via Better Auth</li>
+    <li>• Maintained CI/CD on GitHub Actions: typechecking, Vitest unit tests, and Playwright end-to-end tests on every push</li>
+  </ul>
+</div>
+
+<div class="group-label">Past</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <span class="entry-company">Cinetik</span>
+  </div>
+  <div class="tech-line">Tech: React, TypeScript, TMDB API, TanStack Query, Zustand</div>
+  <ul>
+    <li>• Developed a media exploration platform enabling users to search and filter movies and TV shows via the TMDB API</li>
+    <li>• Implemented efficient data fetching and caching with TanStack Query and managed global state with Zustand</li>
+    <li>• Designed a clean, intuitive UI for seamless media exploration and detailed content views</li>
+  </ul>
+</div>
+
+<!-- Education -->
+<h2>Education</h2>
+<div class="edu-entry">
+  <div class="edu-school">George Mason University</div>
+  <div class="edu-degree">M.S. Computer Science, 2024 – Present</div>
+</div>
+<div class="edu-entry">
+  <div class="edu-school">James Madison University</div>
+  <div class="edu-degree">B.S. Computer Science, 2020 – 2024</div>
+</div>
+
+</body>
+</html>

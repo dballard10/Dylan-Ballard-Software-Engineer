@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RESUME_DIR = path.resolve(__dirname, "../src/resume");
 const OUTPUT_DIR = path.resolve(__dirname, "../public");
 
-const VARIANTS = ["impact", "editorial", "dense", "terminal", "brutalist", "noir", "timeline", "monolith", "forge", "canopy", "cellar", "glacier", "ember", "ats-clean", "editorial-v2"];
+const VARIANTS = ["ats", "editorial-v2"];
 
 async function generate(variant) {
   const htmlPath = path.resolve(RESUME_DIR, `variant-${variant}.html`);
