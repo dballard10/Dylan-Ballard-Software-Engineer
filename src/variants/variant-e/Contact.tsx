@@ -55,7 +55,7 @@ export default function Contact() {
         <ScrollAnimation>
           <h2 className="ve-contact__title">Want to connect?</h2>
           <p className="ve-contact__subtitle">
-            Reach out! Let's build something real together.
+            Reach out! Let's build something together.
           </p>
         </ScrollAnimation>
 
