@@ -81,12 +81,12 @@ export const profile: ProfileData = {
 
   currentProjects: [
     {
-      title: "Shipkitty",
-      image: "/assets/projects/shipkitty/shipkitty-landing.webp",
+      title: "Selas",
+      image: "/assets/projects/selas/selas-landing.webp",
       images: [
-        "/assets/projects/shipkitty/shipkitty-landing.webp",
-        "/assets/projects/shipkitty/shipkitty-dashboard.webp",
-        "/assets/projects/shipkitty/shipkitty-session-events.webp",
+        "/assets/projects/selas/selas-landing.webp",
+        "/assets/projects/selas/selas-notes.webp",
+        "/assets/projects/selas/selas-integrations.webp",
       ],
       tech: [
         { name: "React", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg" },
@@ -95,8 +95,9 @@ export const profile: ProfileData = {
         { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postgresql.svg" },
         { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg" },
       ],
-      description: "AI agent observability dashboard for monitoring, replaying, and analyzing autonomous coding agent sessions. Track costs and token usage across all your projects. View a history of all your projects, each session and even the.",
-      shortDescription: "AI agent observability dashboard.",
+      description: "Note-taking app that keeps all your notes in one place, connected to the tools you already use.",
+      shortDescription: "All your notes in one place.",
+      url: "https://www.selas.dev/",
     },
   ],
 

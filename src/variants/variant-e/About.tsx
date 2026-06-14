@@ -6,7 +6,7 @@ export default function About() {
       <div className="ve-about__content">
         <ScrollAnimation>
           <p className="ve-about__text ve-about__text--dropcap">
-          I'm a full-stack engineer who builds from 0 to 1 and end-to-end. I take ideas and turn them into real products using my powerful problem solving skills and unmatched creativity. I build what you need from intricate database systems to intuitive user interfaces. I GOT IT.
+          I'm a full-stack engineer who builds apps from 0 to 1 and end-to-end. I take ideas and turn them into real apps by combining my vivid imagination with my technical expertise. I build what you need from intricate database systems to intuitive user interfaces.
           </p>
         </ScrollAnimation>
       </div>
